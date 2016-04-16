@@ -54,7 +54,7 @@
 				<configuration>
 
 					<suiteXmlFiles>						
-						<suiteXmlFile>LiveLoginTestCases.xml</suiteXmlFile>						
+						<suiteXmlFile>LiveCreateUser.xml</suiteXmlFile>						
 					</suiteXmlFiles>
 
 					<testFailureIgnore>true</testFailureIgnore>
