@@ -206,10 +206,7 @@ public class TestCase9
 		
 	}
 	
-	private void elseif(boolean b) {
-		// TODO Auto-generated method stub
-		
-	}
+
 
 	@AfterMethod
 	public void afterTest(ITestResult result)
