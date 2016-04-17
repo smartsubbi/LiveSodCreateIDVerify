@@ -177,7 +177,7 @@ public class TestCase9
 		String ThankYouForActivatingPageScreenshot=logger.addScreenCapture(CaptureScreenshot.takeScreenshot(driver, "Application"));
 		logger.log(LogStatus.INFO, ThankYouForActivatingPageScreenshot);	
 		
-		BrowserFactory.closeBrowser();
+		
 		
 		count = count+1;
 		
@@ -185,13 +185,13 @@ public class TestCase9
 		{
 			excel.writeToNextFreeCell(2,0,string);		
 			excel.writetoexcel();
-			SendMail.sendMail(string,"123456",emailAddress,"No");
+			SendMail.sendMail(driver,string,"123456",emailAddress,"No");
 		}
 		else if(count==2)
 		{
 			excel.writeToNextFreeCell(3,0,string);		
 			excel.writetoexcel();
-			SendMail.sendMail(string,"123456",emailAddress,"Yes");
+			SendMail.sendMail(driver,string,"123456",emailAddress,"Yes");
 		}
 		else
 		{
@@ -199,7 +199,7 @@ public class TestCase9
 			
 		}
 		
-		
+		BrowserFactory.closeBrowser();
 		
 		logger.log(LogStatus.INFO, "Quitting the Browser Opened");	
 		

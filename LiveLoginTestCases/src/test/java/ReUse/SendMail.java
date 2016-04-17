@@ -7,15 +7,15 @@ import org.testng.annotations.Test;
 
 public class SendMail 
 {
-	static WebDriver driver;
+	//static WebDriver driver;
 	
 	@Test
-	public static void sendMail(String userName, String password, String emailAddress, String authorisedOrNot) throws Exception
+	public static void sendMail(WebDriver driver,String userName, String password, String emailAddress, String authorisedOrNot) throws Exception
 	{
 		
 		String emailIdToSend = System.getProperty("emailid");
 		
-		driver = new FirefoxDriver();
+		//driver = new FirefoxDriver();
 		
 		driver.get("https://mail.google.com/");
 		
@@ -41,7 +41,7 @@ public class SendMail
 		
 		Thread.sleep(5000);
 		
-		driver.findElement(By.id(":na")).sendKeys(emailIdToSend);
+		driver.findElement(By.id(":na")).sendKeys("smartsubbi@gmail.com");
 		System.out.println(emailIdToSend);
 				
 		Thread.sleep(5000);
