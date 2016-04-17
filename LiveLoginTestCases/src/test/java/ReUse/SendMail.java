@@ -41,7 +41,8 @@ public class SendMail
 		
 		Thread.sleep(5000);
 		
-		driver.findElement(By.id(":na")).sendKeys(email);
+		driver.findElement(By.id(":na")).sendKeys("smartsubbi@gmail.com");
+		System.out.println(email);
 				
 		Thread.sleep(5000);
 		
