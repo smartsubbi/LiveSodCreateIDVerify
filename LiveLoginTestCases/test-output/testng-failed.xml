@@ -1,16 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
-  <test name="Default test(failed)">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Live Test Cases Suite]">
+  <parameter name="Category" value="Live Test Cases"/>
+  <test name="Live Tests(failed)">
     <classes>
-      <class name="TestCases.TestCase9">
+      <class name="TestCases.TestCase4">
         <methods>
-          <include name="createNewUserAge12"/>
           <include name="setUp"/>
+          <include name="ValidNonAuthorisedPlayerLogin"/>
+        </methods>
+      </class> <!-- TestCases.TestCase4 -->
+      <class name="TestCases.TestCase3">
+        <methods>
+          <include name="setUp"/>
+          <include name="ValidNonAuthorisedParentLogin"/>
+        </methods>
+      </class> <!-- TestCases.TestCase3 -->
+      <class name="TestCases.TestCase2">
+        <methods>
+          <include name="ValidAuthorisedParentLogin"/>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- TestCases.TestCase2 -->
+      <class name="TestCases.TestCase1">
+        <methods>
           <include name="afterTest"/>
           <include name="tearDown"/>
+          <include name="setUp"/>
         </methods>
-      </class> <!-- TestCases.TestCase9 -->
+      </class> <!-- TestCases.TestCase1 -->
     </classes>
-  </test> <!-- Default test(failed) -->
-</suite> <!-- Failed suite [Default suite] -->
+  </test> <!-- Live Tests(failed) -->
+</suite> <!-- Failed suite [Live Test Cases Suite] -->

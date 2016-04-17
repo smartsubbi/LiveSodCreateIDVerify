@@ -1,7 +1,5 @@
 package TestCases;
 
-import java.util.Set;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.ITestResult;
@@ -25,23 +23,23 @@ public class TestCase1
 {
 	WebDriver driver;
 	ExtentReports report;
-	ExtentTest logger;	
-	Set<String> windowsOpen;
+	ExtentTest logger;		
 	String Category;
 	
 	@BeforeClass
 	public void setUp()
 	{		
 		report=ExtentManager.Instance();
+		driver = BrowserFactory.getBrowser("firefox");
 	}
 	
 	@Parameters(value="Category")
 	@Test()
-	public void ValidAuthorisedPlayerLogin(String catg)
+	public void ValidAuthorisedPlayerLogin(String catg) throws Throwable
 	{
-		logger = report.startTest("Test Case 1: Live - Age 13 Player (Authorized User) Login to School of Dragons Live ","This will verify if Authorized user with age 13 can login with valid credentials").assignCategory(catg);
+		//logger = report.startTest("Test Case 1: Live - Age 13 Player (Authorized User) Login to School of Dragons Live ","This will verify if Authorized user with age 13 can login with valid credentials").assignCategory(catg);
+		logger = report.startTest("Test Case 1: Live - Age 13 Player (Authorized User) Login to School of Dragons Live ","This will verify if Authorized user with age 13 can login with valid credentials");
 		
-		driver = BrowserFactory.getBrowser("firefox");
 		logger.log(LogStatus.INFO, "Browser is up and running");
 		String browserOpenedScreenshot=logger.addScreenCapture(CaptureScreenshot.takeScreenshot(driver, "Application"));
 		logger.log(LogStatus.INFO, browserOpenedScreenshot);
@@ -50,6 +48,7 @@ public class TestCase1
 		driver.get("http://www.schoolofdragons.com");
 		logger.log(LogStatus.INFO, "Url is Loading");
 		
+		Thread.sleep(5000);
 		
 		CommonHeader header = PageFactory.initElements(driver, CommonHeader.class);
 		header.verifyHomePageTitle();
@@ -58,13 +57,17 @@ public class TestCase1
 		logger.log(LogStatus.INFO, homePageScreenshot);
 		
 		header.clickHeaderLoginLink();
-		logger.log(LogStatus.INFO, "Clicked the Login Link on the Homepage header");
+		logger.log(LogStatus.INFO, "Clicked the Login Link on the Homepage header");	
+		
+		Thread.sleep(5000);
 		
 		LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
 		loginPage.verifyLoginPageTitle();
 		logger.log(LogStatus.INFO, "Login Page Title is verified");
 		String loginPageScreenshot=logger.addScreenCapture(CaptureScreenshot.takeScreenshot(driver, "Application"));
 		logger.log(LogStatus.INFO, loginPageScreenshot);
+		
+		Thread.sleep(5000);
 		
 		loginPage.userNameType("subbuPlayer");
 		logger.log(LogStatus.INFO, "Entered username");
@@ -75,6 +78,8 @@ public class TestCase1
 		loginPage.playNowButtonClick();
 		logger.log(LogStatus.INFO, "Clicked on the Play Now button after entering Username and Password");
 		
+		Thread.sleep(5000);
+		
 		AfterLoggedInPage afterLoggedInPage = PageFactory.initElements(driver, AfterLoggedInPage.class);
         afterLoggedInPage.verifyAfterLoggedInPageTitle();					
 		afterLoggedInPage.currentlyLoggedInText("subbuPlayer").isDisplayed();
@@ -82,6 +87,8 @@ public class TestCase1
 		logger.log(LogStatus.INFO, "After Logged in Page is verified successfully");
 		String afterLoggedinPageScreenshot=logger.addScreenCapture(CaptureScreenshot.takeScreenshot(driver, "Application"));
 		logger.log(LogStatus.INFO, afterLoggedinPageScreenshot);
+		
+		Thread.sleep(5000);
 		
 		BrowserFactory.closeBrowser();
 		logger.log(LogStatus.INFO, "Quitting the Browser Opened");		

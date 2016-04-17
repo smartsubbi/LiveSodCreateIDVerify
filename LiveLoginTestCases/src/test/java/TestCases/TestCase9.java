@@ -28,6 +28,7 @@ import Pages.LoginPage;
 import Pages.SignUpPage;
 import ReUse.AuthoriseMailMailinator;
 import ReUse.AuthorizeEmail;
+import ReUse.SendMail;
 import Utility.BrowserCredentialLogger;
 import Utility.CaptureScreenshot;
 import Utility.GetNewEmail;
@@ -57,8 +58,6 @@ public class TestCase9
 		String browserOpenedScreenshot=logger.addScreenCapture(CaptureScreenshot.takeScreenshot(driver, "Application"));
 		logger.log(LogStatus.INFO, browserOpenedScreenshot);
 		
-
-		
 		driver.get("http://www.schoolofdragons.com");		
 		logger.log(LogStatus.INFO, "Entered Authentication credentials successfully and Url is Loading");		
 		
@@ -66,8 +65,7 @@ public class TestCase9
 		//header.verifyHomePageTitle();
 		logger.log(LogStatus.INFO, "Home Page Title is verified");
 		String homePageScreenshot=logger.addScreenCapture(CaptureScreenshot.takeScreenshot(driver, "Application"));
-		logger.log(LogStatus.INFO, homePageScreenshot);		
-				
+		logger.log(LogStatus.INFO, homePageScreenshot);					
 		
 		header.clickHeaderCreateAnAccountLink();
 		logger.log(LogStatus.INFO, "Clicked the Create an Account Link on the Homepage header");
@@ -187,11 +185,13 @@ public class TestCase9
 		{
 			excel.writeToNextFreeCell(2,0,string);		
 			excel.writetoexcel();
+			SendMail.sendMail(string,"123456",emailAddress,"No");
 		}
 		else if(count==2)
 		{
 			excel.writeToNextFreeCell(3,0,string);		
 			excel.writetoexcel();
+			SendMail.sendMail(string,"123456",emailAddress,"Yes");
 		}
 		else
 		{
@@ -226,6 +226,5 @@ public class TestCase9
 		report.flush();	
 		BrowserFactory.closeBrowser();
 		report.close();				
-	}
-
+	}	
 }

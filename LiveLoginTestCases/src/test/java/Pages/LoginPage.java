@@ -30,7 +30,7 @@ public class LoginPage
 	public void verifyLoginPageTitle()
 	{
 		String loginPageTitle = driver.getTitle();
-		Assert.assertEquals(loginPageTitle, "Login – How to Train Your Dragon Game – School of Dragons");
+		Assert.assertEquals(loginPageTitle, "Login â€“ How to Train Your Dragon Game â€“ School of Dragons");
 	}
 	
 	public void userNameType(String userName)

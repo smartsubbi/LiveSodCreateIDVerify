@@ -34,9 +34,10 @@ public class TestCase2
 	
 	@Parameters(value="Category")
 	@Test
-	public void ValidAuthorisedParentLogin(String catg)
+	public void ValidAuthorisedParentLogin(String catg) throws Throwable
 	{
-		logger = report.startTest("Test Case 2: Live - Age 12 Player (Authorized User) Login to School of Dragons Live ","This will verify if a Autorized user with age 12 can login with valid credentials").assignCategory(catg);
+		//logger = report.startTest("Test Case 2: Live - Age 12 Player (Authorized User) Login to School of Dragons Live ","This will verify if a Autorized user with age 12 can login with valid credentials").assignCategory(catg);
+		logger = report.startTest("Test Case 2: Live - Age 12 Player (Authorized User) Login to School of Dragons Live ","This will verify if a Autorized user with age 12 can login with valid credentials");
 		
 		driver = BrowserFactory.getBrowser("firefox");
 		logger.log(LogStatus.INFO, "Browser is up and running");
@@ -47,6 +48,7 @@ public class TestCase2
 		driver.get("http://www.schoolofdragons.com");
 		logger.log(LogStatus.INFO, "Url is Loading");
 		
+		Thread.sleep(5000);
 		
 		CommonHeader header = PageFactory.initElements(driver, CommonHeader.class);
 		header.verifyHomePageTitle();
@@ -55,13 +57,17 @@ public class TestCase2
 		logger.log(LogStatus.INFO, homePageScreenshot);
 		
 		header.clickHeaderLoginLink();
-		logger.log(LogStatus.INFO, "Clicked the Login Link on the Homepage header");
+		logger.log(LogStatus.INFO, "Clicked the Login Link on the Homepage header");	
+		
+		Thread.sleep(5000);
 		
 		LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
 		loginPage.verifyLoginPageTitle();
 		logger.log(LogStatus.INFO, "Login Page Title is verified");
 		String loginPageScreenshot=logger.addScreenCapture(CaptureScreenshot.takeScreenshot(driver, "Application"));
 		logger.log(LogStatus.INFO, loginPageScreenshot);
+		
+		Thread.sleep(5000);
 		
 		loginPage.userNameType("subbuParent");
 		logger.log(LogStatus.INFO, "Entered username");
@@ -71,6 +77,8 @@ public class TestCase2
 		logger.log(LogStatus.INFO, afterEnteringUsernameAndPassword);
 		loginPage.playNowButtonClick();
 		logger.log(LogStatus.INFO, "Clicked on the Play Now button after entering Username and Password");
+		
+		Thread.sleep(5000);
 		
 		AfterLoggedInPage afterLoggedInPage = PageFactory.initElements(driver, AfterLoggedInPage.class);
         afterLoggedInPage.verifyAfterLoggedInPageTitle();					

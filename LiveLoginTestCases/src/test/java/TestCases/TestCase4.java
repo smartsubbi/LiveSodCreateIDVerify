@@ -37,9 +37,9 @@ public class TestCase4
 	
 	@Parameters(value="Category")
 	@Test
-	public void ValidNonAuthorisedPlayerLogin(String catg)
+	public void ValidNonAuthorisedPlayerLogin(String catg) throws Throwable
 	{
-		logger = report.startTest("Test Case 4: Live - Age 13 Player (Non Authorized User) Login to School of Dragons Live ","This will verify if a non Autorized user with age 13 can login with valid credentials").assignCategory(catg);
+		logger = report.startTest("Test Case 4: Live - Age 13 Player (Non Authorized User) Login to School of Dragons Live ","This will verify if a non Autorized user with age 13 can login with valid credentials");
 		
 		driver = BrowserFactory.getBrowser("firefox");
 		logger.log(LogStatus.INFO, "Browser is up and running");
@@ -50,6 +50,7 @@ public class TestCase4
 		driver.get("http://www.schoolofdragons.com");
 		logger.log(LogStatus.INFO, "Url is Loading");
 		
+		Thread.sleep(5000);
 		
 		CommonHeader header = PageFactory.initElements(driver, CommonHeader.class);
 		header.verifyHomePageTitle();
@@ -58,7 +59,9 @@ public class TestCase4
 		logger.log(LogStatus.INFO, homePageScreenshot);		
 		
 		header.clickHeaderLoginLink();
-		logger.log(LogStatus.INFO, "Clicked the Login Link on the Homepage header");		
+		logger.log(LogStatus.INFO, "Clicked the Login Link on the Homepage header");
+		
+		Thread.sleep(5000);
 		
 		LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
 		loginPage.verifyLoginPageTitle();
@@ -72,7 +75,9 @@ public class TestCase4
 		String afterEnteringUsernameAndPassword=logger.addScreenCapture(CaptureScreenshot.takeScreenshot(driver, "Application"));
 		logger.log(LogStatus.INFO, afterEnteringUsernameAndPassword);
 		loginPage.playNowButtonClick();
-		logger.log(LogStatus.INFO, "Clicked on the Play Now button after entering Username and Password");		
+		logger.log(LogStatus.INFO, "Clicked on the Play Now button after entering Username and Password");	
+		
+		Thread.sleep(5000);
 		
 		NotAuthorisedPopUp notAuthorisedPopUpJava = PageFactory.initElements(driver, NotAuthorisedPopUp.class);
 		notAuthorisedPopUpJava.authorizedPopUpValidation();
@@ -82,6 +87,8 @@ public class TestCase4
 		notAuthorisedPopUpJava.clickUnAuthorizedPopUpOkButton();
 		logger.log(LogStatus.INFO, "Clicked on the non Authorized Pop Up Ok button");
 		
+		Thread.sleep(5000);
+		
 		AfterLoggedInPage afterLoggedInPage = PageFactory.initElements(driver, AfterLoggedInPage.class);
         afterLoggedInPage.verifyAfterLoggedInPageTitle();					
 		afterLoggedInPage.currentlyLoggedInText("SubbuPlayerNA").isDisplayed();
@@ -89,6 +96,8 @@ public class TestCase4
 		logger.log(LogStatus.INFO, "After Logged in Page is verified successfully");
 		String afterLoggedinPageScreenshot=logger.addScreenCapture(CaptureScreenshot.takeScreenshot(driver, "Application"));
 		logger.log(LogStatus.INFO, afterLoggedinPageScreenshot);	
+		
+		Thread.sleep(5000);
 		
 		BrowserFactory.closeBrowser();
 		logger.log(LogStatus.INFO, "Quitting the Browser Opened");		
