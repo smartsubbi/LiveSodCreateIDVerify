@@ -23,7 +23,7 @@
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -37,7 +37,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" class="navigator-link" panel-name="suite-Live_Test_Cases_Suite">
-              <span class="suite-name border-passed">Live Test Cases Suite</span>
+              <span class="suite-name border-failed">Live Test Cases Suite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -48,7 +48,7 @@
               <ul>
                 <li>
                   <a href="#" class="navigator-link " panel-name="test-xml-Live_Test_Cases_Suite">
-                    <span>D:\GitSharedRepository\LiveLoginTestCases\LiveLoginTestCases.xml</span>
+                    <span>D:\GitSharedRepository\LiveLoginTestCases\LiveCreateUser.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -90,36 +90,21 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">4 methods,   4 passed</span>
+                    <span class="method-stats">1 method, 1 failed,   </span>
                   </li>
                   <li>
-                    <span class="method-list-title passed">Passed methods</span>
-                    <span class="show-or-hide-methods passed">
-                      <a href="#" panel-name="suite-Live_Test_Cases_Suite" class="hide-methods passed suite-Live_Test_Cases_Suite"> (hide)</a> <!-- hide-methods passed suite-Live_Test_Cases_Suite -->
-                      <a href="#" panel-name="suite-Live_Test_Cases_Suite" class="show-methods passed suite-Live_Test_Cases_Suite"> (show)</a> <!-- show-methods passed suite-Live_Test_Cases_Suite -->
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-Live_Test_Cases_Suite" class="hide-methods failed suite-Live_Test_Cases_Suite"> (hide)</a> <!-- hide-methods failed suite-Live_Test_Cases_Suite -->
+                      <a href="#" panel-name="suite-Live_Test_Cases_Suite" class="show-methods failed suite-Live_Test_Cases_Suite"> (show)</a> <!-- show-methods failed suite-Live_Test_Cases_Suite -->
                     </span>
-                    <div class="method-list-content passed suite-Live_Test_Cases_Suite">
+                    <div class="method-list-content failed suite-Live_Test_Cases_Suite">
                       <span>
-                        <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Live_Test_Cases_Suite" title="TestCases.TestCase2" hash-for-method="ValidAuthorisedParentLogin(Live Test Cases)">ValidAuthorisedParentLogin(Live Test Cases)</a> <!-- method navigator-link -->
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Live_Test_Cases_Suite" title="TestCases.TestCase9" hash-for-method="createNewUserAge12">createNewUserAge12</a> <!-- method navigator-link -->
                       </span>
                       <br/>
-                      <span>
-                        <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Live_Test_Cases_Suite" title="TestCases.TestCase1" hash-for-method="ValidAuthorisedPlayerLogin(Live Test Cases)">ValidAuthorisedPlayerLogin(Live Test Cases)</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Live_Test_Cases_Suite" title="TestCases.TestCase3" hash-for-method="ValidNonAuthorisedParentLogin(Live Test Cases)">ValidNonAuthorisedParentLogin(Live Test Cases)</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Live_Test_Cases_Suite" title="TestCases.TestCase4" hash-for-method="ValidNonAuthorisedPlayerLogin(Live Test Cases)">ValidNonAuthorisedPlayerLogin(Live Test Cases)</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                    </div> <!-- method-list-content passed suite-Live_Test_Cases_Suite -->
+                    </div> <!-- method-list-content failed suite-Live_Test_Cases_Suite -->
                   </li>
                 </ul>
               </div> <!-- suite-section-content -->
@@ -131,74 +116,50 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Live_Test_Cases_Suite" class="panel Live_Test_Cases_Suite">
-          <div class="suite-Live_Test_Cases_Suite-class-passed">
+          <div class="suite-Live_Test_Cases_Suite-class-failed">
             <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
-              <span class="class-name">TestCases.TestCase4</span>
+              <img src="failed.png"/>
+              <span class="class-name">TestCases.TestCase9</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="ValidNonAuthorisedPlayerLogin(Live Test Cases)">
-                  </a> <!-- ValidNonAuthorisedPlayerLogin(Live Test Cases) -->
-                  <span class="method-name">ValidNonAuthorisedPlayerLogin</span>
-                  <span class="parameters">(Live Test Cases)</span>
+                  <a name="createNewUserAge12">
+                  </a> <!-- createNewUserAge12 -->
+                  <span class="method-name">createNewUserAge12</span>
+                  <div class="stack-trace">org.openqa.selenium.ElementNotVisibleException: Element is not currently visible and so may not be interacted with
+Command duration or timeout: 17 milliseconds
+Build info: version: &apos;2.53.0&apos;, revision: &apos;35ae25b1534ae328c771e0856c93e187490ca824&apos;, time: &apos;2016-03-15 10:43:46&apos;
+System info: host: &apos;DESKTOP-J13P4A7&apos;, ip: &apos;192.168.1.2&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_74&apos;
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=45.0.2, platform=WINDOWS, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: 2ffacb49-45f0-4d76-9fb4-b17777ae7a1a
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:327)
+	at org.openqa.selenium.remote.RemoteWebElement.sendKeys(RemoteWebElement.java:122)
+	at ReUse.SendMail.sendMail(SendMail.java:44)
+	at TestCases.TestCase9.createNewUserAge12(TestCase9.java:194)
+Caused by: org.openqa.selenium.ElementNotVisibleException: Element is not currently visible and so may not be interacted with
+Build info: version: &apos;2.53.0&apos;, revision: &apos;35ae25b1534ae328c771e0856c93e187490ca824&apos;, time: &apos;2016-03-15 10:43:46&apos;
+System info: host: &apos;DESKTOP-J13P4A7&apos;, ip: &apos;192.168.1.2&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_74&apos;
+Driver info: driver.version: unknown
+	at &lt;anonymous class&gt;.fxdriver.preconditions.visible(file:///C:/Users/subbu/AppData/Local/Temp/anonymous2781879469923266891webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:10092)
+	at &lt;anonymous class&gt;.DelayedCommand.prototype.checkPreconditions_(file:///C:/Users/subbu/AppData/Local/Temp/anonymous2781879469923266891webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12644)
+	at &lt;anonymous class&gt;.DelayedCommand.prototype.executeInternal_/h(file:///C:/Users/subbu/AppData/Local/Temp/anonymous2781879469923266891webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12661)
+	at &lt;anonymous class&gt;.DelayedCommand.prototype.executeInternal_(file:///C:/Users/subbu/AppData/Local/Temp/anonymous2781879469923266891webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12666)
+	at &lt;anonymous class&gt;.DelayedCommand.prototype.execute/&lt;(file:///C:/Users/subbu/AppData/Local/Temp/anonymous2781879469923266891webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12608)
+... Removed 28 stack frames
+</div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-Live_Test_Cases_Suite-class-passed -->
-          <div class="suite-Live_Test_Cases_Suite-class-passed">
-            <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
-              <span class="class-name">TestCases.TestCase3</span>
-            </div> <!-- main-panel-header rounded-window-top -->
-            <div class="main-panel-content rounded-window-bottom">
-              <div class="method">
-                <div class="method-content">
-                  <a name="ValidNonAuthorisedParentLogin(Live Test Cases)">
-                  </a> <!-- ValidNonAuthorisedParentLogin(Live Test Cases) -->
-                  <span class="method-name">ValidNonAuthorisedParentLogin</span>
-                  <span class="parameters">(Live Test Cases)</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-            </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-Live_Test_Cases_Suite-class-passed -->
-          <div class="suite-Live_Test_Cases_Suite-class-passed">
-            <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
-              <span class="class-name">TestCases.TestCase2</span>
-            </div> <!-- main-panel-header rounded-window-top -->
-            <div class="main-panel-content rounded-window-bottom">
-              <div class="method">
-                <div class="method-content">
-                  <a name="ValidAuthorisedParentLogin(Live Test Cases)">
-                  </a> <!-- ValidAuthorisedParentLogin(Live Test Cases) -->
-                  <span class="method-name">ValidAuthorisedParentLogin</span>
-                  <span class="parameters">(Live Test Cases)</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-            </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-Live_Test_Cases_Suite-class-passed -->
-          <div class="suite-Live_Test_Cases_Suite-class-passed">
-            <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
-              <span class="class-name">TestCases.TestCase1</span>
-            </div> <!-- main-panel-header rounded-window-top -->
-            <div class="main-panel-content rounded-window-bottom">
-              <div class="method">
-                <div class="method-content">
-                  <a name="ValidAuthorisedPlayerLogin(Live Test Cases)">
-                  </a> <!-- ValidAuthorisedPlayerLogin(Live Test Cases) -->
-                  <span class="method-name">ValidAuthorisedPlayerLogin</span>
-                  <span class="parameters">(Live Test Cases)</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-            </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-Live_Test_Cases_Suite-class-passed -->
+          </div> <!-- suite-Live_Test_Cases_Suite-class-failed -->
         </div> <!-- panel Live_Test_Cases_Suite -->
         <div panel-name="test-xml-Live_Test_Cases_Suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">D:\GitSharedRepository\LiveLoginTestCases\LiveLoginTestCases.xml</span>
+            <span class="header-content">D:\GitSharedRepository\LiveLoginTestCases\LiveCreateUser.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -208,10 +169,7 @@
   &lt;parameter name=&quot;Category&quot; value=&quot;Live Test Cases&quot;/&gt;
   &lt;test name=&quot;Live Tests&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;TestCases.TestCase1&quot;/&gt;
-      &lt;class name=&quot;TestCases.TestCase2&quot;/&gt;
-      &lt;class name=&quot;TestCases.TestCase3&quot;/&gt;
-      &lt;class name=&quot;TestCases.TestCase4&quot;/&gt;
+      &lt;class name=&quot;TestCases.TestCase9&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Live Tests --&gt;
 &lt;/suite&gt; &lt;!-- Live Test Cases Suite --&gt;
@@ -225,7 +183,7 @@
           <div class="main-panel-content rounded-window-bottom">
             <ul>
               <li>
-                <span class="test-name">Live Tests (4 classes)</span>
+                <span class="test-name">Live Tests (1 class)</span>
               </li>
             </ul>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -251,23 +209,11 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(4);
+data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'ValidNonAuthorisedParentLogin')
-data.setCell(0, 2, 'TestCases.TestCase3')
-data.setCell(0, 3, 57983);
-data.setCell(1, 0, 1)
-data.setCell(1, 1, 'ValidNonAuthorisedPlayerLogin')
-data.setCell(1, 2, 'TestCases.TestCase4')
-data.setCell(1, 3, 57747);
-data.setCell(2, 0, 2)
-data.setCell(2, 1, 'ValidAuthorisedParentLogin')
-data.setCell(2, 2, 'TestCases.TestCase2')
-data.setCell(2, 3, 51302);
-data.setCell(3, 0, 3)
-data.setCell(3, 1, 'ValidAuthorisedPlayerLogin')
-data.setCell(3, 2, 'TestCases.TestCase1')
-data.setCell(3, 3, 51181);
+data.setCell(0, 1, 'createNewUserAge12')
+data.setCell(0, 2, 'TestCases.TestCase9')
+data.setCell(0, 3, 205636);
 window.suiteTableData['Live_Test_Cases_Suite']= { tableData: data, tableDiv: 'times-div-Live_Test_Cases_Suite'}
 return data;
 }
@@ -298,80 +244,23 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">TestCases.TestCase1</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">TestCases.TestCase9</div> <!-- chronological-class-name -->
               <div class="configuration-class before">
                 <span class="method-name">setUp</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
-                <span class="method-name">ValidAuthorisedPlayerLogin(Live Test Cases)</span>
-                <span class="method-start">4200 ms</span>
+                <img src="failed.png">
+                </img>
+                <span class="method-name">createNewUserAge12</span>
+                <span class="method-start">93 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">afterTest([TestResult name=ValidAuthorisedPlayerLogin status=SUCCESS method=TestCase1.ValidAuthorisedPlayerLog...)</span>
-                <span class="method-start">55383 ms</span>
+                <img src="failed.png">
+                </img>
+                <span class="method-name">afterTest([TestResult name=createNewUserAge12 status=FAILURE method=TestCase9.createNewUserAge12()[pri:0, inst...)</span>
+                <span class="method-start">205736 ms</span>
               </div> <!-- configuration-method after -->
-              <div class="configuration-class after">
-                <span class="method-name">tearDown</span>
-                <span class="method-start">55383 ms</span>
-              </div> <!-- configuration-class after -->
-            </div> <!-- chronological-class -->
-            <div class="chronological-class">
-              <div class="chronological-class-name">TestCases.TestCase2</div> <!-- chronological-class-name -->
-              <div class="configuration-class before">
-                <span class="method-name">setUp</span>
-                <span class="method-start">55735 ms</span>
-              </div> <!-- configuration-class before -->
-              <div class="test-method">
-                <span class="method-name">ValidAuthorisedParentLogin(Live Test Cases)</span>
-                <span class="method-start">55839 ms</span>
-              </div> <!-- test-method -->
-              <div class="configuration-method after">
-                <span class="method-name">afterTest([TestResult name=ValidAuthorisedParentLogin status=SUCCESS method=TestCase2.ValidAuthorisedParentLog...)</span>
-                <span class="method-start">107142 ms</span>
-              </div> <!-- configuration-method after -->
-              <div class="configuration-class after">
-                <span class="method-name">tearDown</span>
-                <span class="method-start">107142 ms</span>
-              </div> <!-- configuration-class after -->
-            </div> <!-- chronological-class -->
-            <div class="chronological-class">
-              <div class="chronological-class-name">TestCases.TestCase3</div> <!-- chronological-class-name -->
-              <div class="configuration-class before">
-                <span class="method-name">setUp</span>
-                <span class="method-start">107198 ms</span>
-              </div> <!-- configuration-class before -->
-              <div class="test-method">
-                <span class="method-name">ValidNonAuthorisedParentLogin(Live Test Cases)</span>
-                <span class="method-start">107232 ms</span>
-              </div> <!-- test-method -->
-              <div class="configuration-method after">
-                <span class="method-name">afterTest([TestResult name=ValidNonAuthorisedParentLogin status=SUCCESS method=TestCase3.ValidNonAuthorisedPar...)</span>
-                <span class="method-start">165216 ms</span>
-              </div> <!-- configuration-method after -->
-              <div class="configuration-class after">
-                <span class="method-name">tearDown</span>
-                <span class="method-start">165216 ms</span>
-              </div> <!-- configuration-class after -->
-            </div> <!-- chronological-class -->
-            <div class="chronological-class">
-              <div class="chronological-class-name">TestCases.TestCase4</div> <!-- chronological-class-name -->
-              <div class="configuration-class before">
-                <span class="method-name">setUp</span>
-                <span class="method-start">165266 ms</span>
-              </div> <!-- configuration-class before -->
-              <div class="test-method">
-                <span class="method-name">ValidNonAuthorisedPlayerLogin(Live Test Cases)</span>
-                <span class="method-start">165297 ms</span>
-              </div> <!-- test-method -->
-              <div class="configuration-method after">
-                <span class="method-name">afterTest([TestResult name=ValidNonAuthorisedPlayerLogin status=SUCCESS method=TestCase4.ValidNonAuthorisedPla...)</span>
-                <span class="method-start">223046 ms</span>
-              </div> <!-- configuration-method after -->
-              <div class="configuration-class after">
-                <span class="method-name">tearDown</span>
-                <span class="method-start">223046 ms</span>
-              </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
       </div> <!-- main-panel-root -->
