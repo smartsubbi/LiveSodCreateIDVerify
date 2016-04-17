@@ -50,7 +50,7 @@ public class TestCase3
 		Thread.sleep(5000);		
 		
 		CommonHeader header = PageFactory.initElements(driver, CommonHeader.class);
-		header.verifyHomePageTitle();
+		//header.verifyHomePageTitle();
 		logger.log(LogStatus.INFO, "Home Page Title is verified");
 		String homePageScreenshot=logger.addScreenCapture(CaptureScreenshot.takeScreenshot(driver, "Application"));
 		logger.log(LogStatus.INFO, homePageScreenshot);
@@ -61,7 +61,7 @@ public class TestCase3
 		Thread.sleep(5000);
 		
 		LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
-		loginPage.verifyLoginPageTitle();
+		//loginPage.verifyLoginPageTitle();
 		logger.log(LogStatus.INFO, "Login Page Title is verified");
 		String loginPageScreenshot=logger.addScreenCapture(CaptureScreenshot.takeScreenshot(driver, "Application"));
 		logger.log(LogStatus.INFO, loginPageScreenshot);		
@@ -87,7 +87,7 @@ public class TestCase3
 		Thread.sleep(5000);
 		
 		AfterLoggedInPage afterLoggedInPage = PageFactory.initElements(driver, AfterLoggedInPage.class);
-        afterLoggedInPage.verifyAfterLoggedInPageTitle();					
+       // afterLoggedInPage.verifyAfterLoggedInPageTitle();					
 		afterLoggedInPage.currentlyLoggedInText("SubbuParentNA").isDisplayed();
 		afterLoggedInPage.afterLoggedInSuccessfully();
 		logger.log(LogStatus.INFO, "After Logged in Page is verified successfully");
