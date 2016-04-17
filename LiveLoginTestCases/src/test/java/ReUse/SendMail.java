@@ -12,6 +12,9 @@ public class SendMail
 	@Test
 	public static void sendMail(String userName, String password, String emailAddress, String authorisedOrNot) throws Exception
 	{
+		
+		String email = System.getProperty("emailid");
+		
 		driver = new FirefoxDriver();
 		
 		driver.get("https://mail.google.com/");
@@ -38,7 +41,7 @@ public class SendMail
 		
 		Thread.sleep(5000);
 		
-		driver.findElement(By.id(":na")).sendKeys("smartsubbi@gmail.com");
+		driver.findElement(By.id(":na")).sendKeys(email);
 				
 		Thread.sleep(5000);
 		
@@ -59,6 +62,4 @@ public class SendMail
 		driver.close();
 		driver.quit();		
 	}
-	
-
 }
