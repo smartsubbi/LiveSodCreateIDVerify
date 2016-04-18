@@ -53,7 +53,7 @@ public class TestCase9
 		int count = 0;
         logger = report.startTest("Test Case 6: QA - Age 12 Player (Authorized User) Login to School of Dragons Live ","This will verify if a Autorized user with age 12 can login with valid credentials").assignCategory("none");
 		
-		driver = BrowserFactory.getBrowser("firefox");
+		driver = BrowserFactory.getBrowser("chrome");
 		logger.log(LogStatus.INFO, "Browser is up and running");
 		String browserOpenedScreenshot=logger.addScreenCapture(CaptureScreenshot.takeScreenshot(driver, "Application"));
 		logger.log(LogStatus.INFO, browserOpenedScreenshot);
