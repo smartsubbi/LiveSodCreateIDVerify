@@ -30,7 +30,7 @@ public class TestCase1
 	public void setUp()
 	{		
 		report=ExtentManager.Instance();
-		driver = BrowserFactory.getBrowser("firefox");
+		driver = BrowserFactory.getBrowser("chrome");
 	}
 	
 	@Parameters(value="Category")
