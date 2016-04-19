@@ -1,6 +1,5 @@
 package ReUse;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -9,10 +8,8 @@ import Utility.BrowserCredentialLogger;
 
 public class AuthorizeEmail 
 {
-	WebDriver driver;
-	
-	String userNameLine;
-	
+	WebDriver driver;	
+	String userNameLine;	
 	
 	@FindBy(xpath="//*[@id='Email']")
 	WebElement emailInputField;
@@ -37,39 +34,17 @@ public class AuthorizeEmail
 	
 	public void authroiseEmail(String userName) throws Throwable
 	{		
-		Thread.sleep(3000);
-		
-		emailInputField.sendKeys("seleniumsubbu@gmail.com");
-		
-		nextButton.click();
-		
-		Thread.sleep(3000);
-		
-		passwordInputField.sendKeys("blademaster1");
-		
-		signInButton.click();
-		
-		Thread.sleep(10000);
-		
-//		sodFolder.click();
-//		
-//		Thread.sleep(3000);
-		
+		Thread.sleep(3000);		
+		emailInputField.sendKeys("seleniumsubbu@gmail.com");		
+		nextButton.click();		
+		Thread.sleep(3000);		
+		passwordInputField.sendKeys("blademaster1");		
+		signInButton.click();		
+		Thread.sleep(10000);		
 		firstEmail.click();			
-		
-		Thread.sleep(3000);
-		
-//		String userNameLine = "//table/tbody/tr/td/table/tbody/tr[2]/td/table/tbody/tr/td[2]/table/tbody/tr[3]/td/p[2]/strong[contains(text(),'"+userName+"')][contains(text(),'Player')][contains(text(),'s Login:')]";
-//		
-//		
-//		System.out.println(userNameLine);
-//		
-//		driver.findElement(By.xpath(userNameLine)).isDisplayed();     
-		
-		BrowserCredentialLogger.mozillaCredentialsLogger();
-		
-		clickHereToActivateAccount.click();	
-		
+		Thread.sleep(3000);		
+		BrowserCredentialLogger.mozillaCredentialsLogger();		
+		clickHereToActivateAccount.click();		
 		Thread.sleep(3000);
 	}	
 }

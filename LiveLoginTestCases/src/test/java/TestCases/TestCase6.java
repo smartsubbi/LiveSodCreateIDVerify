@@ -27,14 +27,14 @@ public class TestCase6
 	ExtentTest logger;			
 	
 	@BeforeClass
-	public void setUp()
+	public void setUp() throws Throwable
 	{		
 		report=ExtentManager.Instance();
 	}
 	
 	@Parameters(value="Category")
 	@Test
-	public void ValidAuthorisedParentLogin(String catg)
+	public void ValidAuthorisedParentLogin(String catg) throws Throwable
 	{
 		logger = report.startTest("Test Case 6: QA - Age 12 Player (Authorized User) Login to School of Dragons Live ","This will verify if a Autorized user with age 12 can login with valid credentials").assignCategory(catg);
 		
@@ -89,7 +89,7 @@ public class TestCase6
 	}
 	
 	@AfterMethod
-	public void afterTest(ITestResult result)
+	public void afterTest(ITestResult result) throws Throwable
 	{
 		if(result.getStatus()==ITestResult.FAILURE)	
 		{		

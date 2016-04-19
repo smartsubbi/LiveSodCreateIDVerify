@@ -3,12 +3,11 @@
 <suite name="Live Test Cases Suite">
 	<parameter name="Category" value="Live Test Cases" />
 	<test name="Live Tests">
-		<classes>		
+		<classes>
 			<class name="TestCases.TestCase1" />
 			<class name="TestCases.TestCase2" />
-			<class name="TestCases.TestCase3" />
+			<class name="TestCases.TestCase3" /> 
 			<class name="TestCases.TestCase4" />
 		</classes>
 	</test> <!-- Test -->
 </suite> <!-- Suite -->
- 

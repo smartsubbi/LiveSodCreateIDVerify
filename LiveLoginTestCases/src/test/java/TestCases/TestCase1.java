@@ -5,18 +5,18 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
-
 import Factory.BrowserFactory;
 import Pages.AfterLoggedInPage;
 import Pages.CommonHeader;
 import Pages.LoginPage;
+import ReUse.SendMail;
 import Utility.CaptureScreenshot;
 
 public class TestCase1
@@ -27,7 +27,7 @@ public class TestCase1
 	String Category;
 	
 	@BeforeClass
-	public void setUp()
+	public void setUp() throws Throwable
 	{		
 		report=ExtentManager.Instance();
 		driver = BrowserFactory.getBrowser("chrome");
@@ -37,38 +37,23 @@ public class TestCase1
 	@Test()
 	public void ValidAuthorisedPlayerLogin(String catg) throws Throwable
 	{
-		//logger = report.startTest("Test Case 1: Live - Age 13 Player (Authorized User) Login to School of Dragons Live ","This will verify if Authorized user with age 13 can login with valid credentials").assignCategory(catg);
-		logger = report.startTest("Test Case 1: Live - Age 13 Player (Authorized User) Login to School of Dragons Live ","This will verify if Authorized user with age 13 can login with valid credentials");
-		
+		logger = report.startTest("Test Case 1: Live - Age 13 Player (Authorized User) Login to School of Dragons Live ","This will verify if Authorized user with age 13 can login with valid credentials");		
 		logger.log(LogStatus.INFO, "Browser is up and running");
 		String browserOpenedScreenshot=logger.addScreenCapture(CaptureScreenshot.takeScreenshot(driver, "Application"));
-		logger.log(LogStatus.INFO, browserOpenedScreenshot);
-		
-		
+		logger.log(LogStatus.INFO, browserOpenedScreenshot);		
 		driver.get("http://www.schoolofdragons.com");
-		logger.log(LogStatus.INFO, "Url is Loading");
-		
-		Thread.sleep(5000);
-		
-		CommonHeader header = PageFactory.initElements(driver, CommonHeader.class);
-	//	header.verifyHomePageTitle();
-		logger.log(LogStatus.INFO, "Home Page Title is verified");
+		logger.log(LogStatus.INFO, "Url is Loading");		
+		Thread.sleep(5000);		
+		CommonHeader header = PageFactory.initElements(driver, CommonHeader.class);		
 		String homePageScreenshot=logger.addScreenCapture(CaptureScreenshot.takeScreenshot(driver, "Application"));
-		logger.log(LogStatus.INFO, homePageScreenshot);
-		
+		logger.log(LogStatus.INFO, homePageScreenshot);		
 		header.clickHeaderLoginLink();
-		logger.log(LogStatus.INFO, "Clicked the Login Link on the Homepage header");	
-		
-		Thread.sleep(5000);
-		
-		LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
-	//	loginPage.verifyLoginPageTitle();
-		logger.log(LogStatus.INFO, "Login Page Title is verified");
+		logger.log(LogStatus.INFO, "Clicked the Login Link on the Homepage header");		
+		Thread.sleep(5000);		
+		LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);	
 		String loginPageScreenshot=logger.addScreenCapture(CaptureScreenshot.takeScreenshot(driver, "Application"));
-		logger.log(LogStatus.INFO, loginPageScreenshot);
-		
-		Thread.sleep(5000);
-		
+		logger.log(LogStatus.INFO, loginPageScreenshot);		
+		Thread.sleep(5000);		
 		loginPage.userNameType("subbuPlayer");
 		logger.log(LogStatus.INFO, "Entered username");
 		loginPage.passwordType("123456");
@@ -76,26 +61,21 @@ public class TestCase1
 		String afterEnteringUsernameAndPassword=logger.addScreenCapture(CaptureScreenshot.takeScreenshot(driver, "Application"));
 		logger.log(LogStatus.INFO, afterEnteringUsernameAndPassword);
 		loginPage.playNowButtonClick();
-		logger.log(LogStatus.INFO, "Clicked on the Play Now button after entering Username and Password");
-		
-		Thread.sleep(5000);
-		
-		AfterLoggedInPage afterLoggedInPage = PageFactory.initElements(driver, AfterLoggedInPage.class);
-      //  afterLoggedInPage.verifyAfterLoggedInPageTitle();					
+		logger.log(LogStatus.INFO, "Clicked on the Play Now button after entering Username and Password");		
+		Thread.sleep(5000);		
+		AfterLoggedInPage afterLoggedInPage = PageFactory.initElements(driver, AfterLoggedInPage.class);    					
 		afterLoggedInPage.currentlyLoggedInText("subbuPlayer").isDisplayed();
 		afterLoggedInPage.afterLoggedInSuccessfully();
 		logger.log(LogStatus.INFO, "After Logged in Page is verified successfully");
 		String afterLoggedinPageScreenshot=logger.addScreenCapture(CaptureScreenshot.takeScreenshot(driver, "Application"));
-		logger.log(LogStatus.INFO, afterLoggedinPageScreenshot);
-		
-		Thread.sleep(5000);
-		
+		logger.log(LogStatus.INFO, afterLoggedinPageScreenshot);		
+		Thread.sleep(5000);		
 		BrowserFactory.closeBrowser();
 		logger.log(LogStatus.INFO, "Quitting the Browser Opened");		
 	}
 	
 	@AfterMethod
-	public void afterTest(ITestResult result)
+	public void afterTest(ITestResult result) throws Throwable
 	{
 		if(result.getStatus()==ITestResult.FAILURE)	
 		{		
@@ -112,6 +92,16 @@ public class TestCase1
 		report.flush();	
 		BrowserFactory.closeBrowser();
 		report.close();				
+	}
+	
+	@AfterTest
+	public void printReportPath() throws Throwable
+	{
+		WebDriver driver = BrowserFactory.getBrowser("chrome");
+		String emailReportPathToSend = ExtentManager.finalPath;		
+		String mailContent = "You can refer to the below report for the run result\n"+emailReportPathToSend;
+		SendMail.sendMailOnlyContent(driver, "School Of Dragons Live - Login Checks - Age 13 Player (Authorized User),Test Case 2: Live - Age 12 Player (Authorized User),Age 12 Player (Non Authorized User),Age 13 Player (Non Authorized User)", mailContent);
+		BrowserFactory.closeBrowser();
 	}
 
 }

@@ -10,8 +10,7 @@ public class ConfigDataProvider
 	
 	public ConfigDataProvider()
 	{
-		File src = new File("./Configuration/config.properties");
-		
+		File src = new File("./Configuration/config.properties");		
 		try {
 			FileInputStream fis = new FileInputStream(src);
 			
@@ -27,18 +26,13 @@ public class ConfigDataProvider
 	
 	public String getChromePath()
 	{
-		String chrome_driver_path = pro.getProperty("ChromePath");
-		System.out.println("Tester "+chrome_driver_path);
-		
-		return chrome_driver_path;
-		
+		String chrome_driver_path = pro.getProperty("ChromePath");		
+		return chrome_driver_path;		
 	}
 	
 	public String getIEPath()
 	{
-		String id_driver_path = pro.getProperty("IEPath");
-		
+		String id_driver_path = pro.getProperty("IEPath");		
 		return id_driver_path;
 	}
-
 }

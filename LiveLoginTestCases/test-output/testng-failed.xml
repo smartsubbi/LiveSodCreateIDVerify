@@ -4,13 +4,30 @@
   <parameter name="Category" value="Live Test Cases"/>
   <test name="Live Tests(failed)">
     <classes>
-      <class name="TestCases.TestCase9">
+      <class name="TestCases.TestCase4">
         <methods>
-          <include name="createNewUserAge12"/>
           <include name="setUp"/>
-          <include name="afterTest"/>
+          <include name="ValidNonAuthorisedPlayerLogin"/>
         </methods>
-      </class> <!-- TestCases.TestCase9 -->
+      </class> <!-- TestCases.TestCase4 -->
+      <class name="TestCases.TestCase3">
+        <methods>
+          <include name="setUp"/>
+          <include name="ValidNonAuthorisedParentLogin"/>
+        </methods>
+      </class> <!-- TestCases.TestCase3 -->
+      <class name="TestCases.TestCase2">
+        <methods>
+          <include name="ValidAuthorisedParentLogin"/>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- TestCases.TestCase2 -->
+      <class name="TestCases.TestCase1">
+        <methods>
+          <include name="ValidAuthorisedPlayerLogin"/>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- TestCases.TestCase1 -->
     </classes>
   </test> <!-- Live Tests(failed) -->
 </suite> <!-- Failed suite [Live Test Cases Suite] -->

@@ -41,7 +41,7 @@ public class TestCase9
 	ExtentTest logger;			
 	
 	@BeforeClass
-	public void setUp()
+	public void setUp() throws Throwable
 	{		
 		report=ExtentManager.Instance();
 	}
@@ -209,7 +209,7 @@ public class TestCase9
 
 
 	@AfterMethod
-	public void afterTest(ITestResult result)
+	public void afterTest(ITestResult result) throws Throwable
 	{
 		if(result.getStatus()==ITestResult.FAILURE)	
 		{		

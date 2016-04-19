@@ -3,11 +3,13 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="ReUse.SendMail">
+      <class name="TestCases.TestCase4">
         <methods>
-          <include name="sendMail"/>
+          <include name="setUp"/>
+          <include name="ValidNonAuthorisedPlayerLogin"/>
+          <include name="tearDown"/>
         </methods>
-      </class> <!-- ReUse.SendMail -->
+      </class> <!-- TestCases.TestCase4 -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

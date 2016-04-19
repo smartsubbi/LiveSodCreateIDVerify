@@ -1,5 +1,6 @@
 package TestCases;
 
+import java.net.InetAddress;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -10,22 +11,18 @@ public class ExtentManager
 {
 	static DateFormat dateFormat = new SimpleDateFormat("E.MMMM.yyyy_HH.mm.ss[a]");
 	static Date date = new Date();
-	static String userDirectory =  System.getProperty("user.dir");
-	static String path = userDirectory.replace("\\","/");
-	static String reportPath = path+"/ExtentReports/SchoolOfDragonsLive_" +dateFormat.format(date) + ".html";
-
+	static String finalPath;	
 	
-	
-	
-	public static ExtentReports Instance() 
-	{		
-		ExtentReports report;		
-		System.out.println(reportPath);
-		report = new ExtentReports(reportPath, false);
+	public static ExtentReports Instance() throws Throwable 
+	{
+		String userDirectory =  System.getProperty("user.dir");
+		ExtentReports report;
+		InetAddress address = InetAddress.getLocalHost(); 
+		String hostIP = address.getHostAddress();	 	        
+	    String splitDir[] = userDirectory.split(":");				
+		finalPath = "\\\\"+hostIP+splitDir[1]+"\\ExtentReports\\SchoolOfDragonsLive_" +dateFormat.format(date) + ".html";	
+		report = new ExtentReports(finalPath, false);
 		report.config().documentTitle("Automation Report").reportName("Regression");
 		return report;
-	}
-	
-	
-	
+	}		
 }
