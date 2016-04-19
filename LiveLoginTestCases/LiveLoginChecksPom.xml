@@ -52,11 +52,14 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>2.18.1</version>
 				<configuration>
-				
-			
 
-					<suiteXmlFiles>						
-						<suiteXmlFile>LiveLoginTestCases.xml</suiteXmlFile>						
+					<systemPropertyVariables>
+						<emailid>${emailid}</emailid>
+					</systemPropertyVariables>
+
+
+					<suiteXmlFiles>
+						<suiteXmlFile>LiveLoginTestCases.xml</suiteXmlFile>
 					</suiteXmlFiles>
 
 					<testFailureIgnore>true</testFailureIgnore>

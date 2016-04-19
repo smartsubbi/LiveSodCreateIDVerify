@@ -22,7 +22,8 @@ public class SendMail
 		Thread.sleep(5000);		
 		driver.findElement(By.xpath("//div[.='COMPOSE']")).click();		
 		Thread.sleep(5000);		
-		driver.findElement(By.id(":na")).sendKeys("subramanyakb@jumpstart.com");						
+		driver.findElement(By.id(":na")).sendKeys("subramanyakb@jumpstart.com");
+		System.out.println(emailIdToSend);
 		Thread.sleep(5000);		
 		driver.findElement(By.id(":mu")).sendKeys("SOD Live ID Created");		
 		Thread.sleep(5000);			
