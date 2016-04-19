@@ -52,7 +52,8 @@ public class SendMail
 		Thread.sleep(5000);		
 		driver.findElement(By.xpath("//div[.='COMPOSE']")).click();		
 		Thread.sleep(5000);		
-		driver.findElement(By.id(":na")).sendKeys("subramanyakb@jumpstart.com");					
+		driver.findElement(By.id(":na")).sendKeys("subramanyakb@jumpstart.com");
+		System.out.println(emailIdToSend);
 		Thread.sleep(5000);		
 		driver.findElement(By.id(":mu")).sendKeys(subject);		
 		Thread.sleep(5000);				
