@@ -115,7 +115,7 @@ public class TestCase10
 		{
 			WebDriver driver = BrowserFactory.getBrowser("chrome");		
 			String emailReportPathToSend = ExtentManager.finalPath;
-			String mailContent = "There are issues authorising the user You can refer to the below report for the run result\n"+emailReportPathToSend+"\nBelow are the details of the non authorised user created : \n";
+			String mailContent = "Non authorised user has been created.\n\nYou can refer to the below report for the run result\n"+emailReportPathToSend+"\nBelow are the details of the non authorised user created : \n";
 			excel.writeToNextFreeCell(2,0,userName);		
 			excel.writetoexcel();
 			SendMail.sendMail(driver,subject,mailContent,age,userName,"123456",emailAddress,"No");
