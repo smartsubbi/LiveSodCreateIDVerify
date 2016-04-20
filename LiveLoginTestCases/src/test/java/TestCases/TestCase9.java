@@ -1,9 +1,5 @@
 package TestCases;
 
-import java.util.ArrayList;
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.ITestResult;
@@ -12,11 +8,9 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
-
 import DataProvider.ExcelDataProvider;
 import Factory.BrowserFactory;
 import Pages.ActivateAccountPage;
@@ -24,12 +18,9 @@ import Pages.AfterLoggedInPage;
 import Pages.AlmostDonePopUp;
 import Pages.CommonHeader;
 import Pages.CreateAnAccountPage;
-import Pages.LoginPage;
 import Pages.SignUpPage;
 import ReUse.AuthoriseMailMailinator;
-import ReUse.AuthorizeEmail;
 import ReUse.SendMail;
-import Utility.BrowserCredentialLogger;
 import Utility.CaptureScreenshot;
 import Utility.GetNewEmail;
 import Utility.RandomStringGenerator;
@@ -38,7 +29,11 @@ public class TestCase9
 {
 	WebDriver driver;
 	ExtentReports report;
-	ExtentTest logger;			
+	ExtentTest logger;	
+	String age = "12";
+	int count = 0;
+	
+	String subject = "Create Age 12 Player (Authorized User)";
 	
 	@BeforeClass
 	public void setUp() throws Throwable
@@ -50,109 +45,73 @@ public class TestCase9
 	@Test
 	public void createNewUserAge12() throws Throwable
 	{
-		int count = 0;
-        logger = report.startTest("Test Case 6: QA - Age 12 Player (Authorized User) Login to School of Dragons Live ","This will verify if a Autorized user with age 12 can login with valid credentials").assignCategory("none");
+		logger = report.startTest("Test Case 5: School Of Dragons - Live - Create Age 12 Player (Authorized User) ","This will verify if user can create an Autorized user with age 12").assignCategory("none");
 		
 		driver = BrowserFactory.getBrowser("chrome");
 		logger.log(LogStatus.INFO, "Browser is up and running");
 		String browserOpenedScreenshot=logger.addScreenCapture(CaptureScreenshot.takeScreenshot(driver, "Application"));
-		logger.log(LogStatus.INFO, browserOpenedScreenshot);
-		
+		logger.log(LogStatus.INFO, browserOpenedScreenshot);		
 		driver.get("http://www.schoolofdragons.com");		
-		logger.log(LogStatus.INFO, "Entered Authentication credentials successfully and Url is Loading");		
-		
-		CommonHeader header = PageFactory.initElements(driver, CommonHeader.class);
-		//header.verifyHomePageTitle();
+		logger.log(LogStatus.INFO, "Entered Authentication credentials successfully and Url is Loading");			
+		CommonHeader header = PageFactory.initElements(driver, CommonHeader.class);		
 		logger.log(LogStatus.INFO, "Home Page Title is verified");
 		String homePageScreenshot=logger.addScreenCapture(CaptureScreenshot.takeScreenshot(driver, "Application"));
-		logger.log(LogStatus.INFO, homePageScreenshot);					
-		
+		logger.log(LogStatus.INFO, homePageScreenshot);				
 		header.clickHeaderCreateAnAccountLink();
-		logger.log(LogStatus.INFO, "Clicked the Create an Account Link on the Homepage header");
-		
-		Thread.sleep(5000);
-		
-		SignUpPage signUpPage = PageFactory.initElements(driver, SignUpPage.class);
-		//signUpPage.verifySignUpPageTitle();
+		logger.log(LogStatus.INFO, "Clicked the Create an Account Link on the Homepage header");		
+		Thread.sleep(5000);		
+		SignUpPage signUpPage = PageFactory.initElements(driver, SignUpPage.class);		
 		logger.log(LogStatus.INFO, "Sign Up Page Title is verified");		
 		String signUpPageScreenshot=logger.addScreenCapture(CaptureScreenshot.takeScreenshot(driver, "Application"));
-		logger.log(LogStatus.INFO, signUpPageScreenshot);
-		
+		logger.log(LogStatus.INFO, signUpPageScreenshot);		
 		signUpPage.confirmButtonDisabledElementValidation();
-		logger.log(LogStatus.INFO, "Verified if the Confirm Button is disabled");
-		
-		signUpPage.selectAge("12");
-		logger.log(LogStatus.INFO, "Select age 12");
-		
+		logger.log(LogStatus.INFO, "Verified if the Confirm Button is disabled");		
+		signUpPage.selectAge(age);
+		logger.log(LogStatus.INFO, "Select age 12");		
 		signUpPage.selectedAgeElementValidation();
-		logger.log(LogStatus.INFO, "Verify is age selected is 12");
-		
+		logger.log(LogStatus.INFO, "Verify is age selected is 12");		
 		signUpPage.confirmButtonEnabledElementValidation();
-		logger.log(LogStatus.INFO, "Verify if the confirm button is enabled");
-		
+		logger.log(LogStatus.INFO, "Verify if the confirm button is enabled");		
 		String signUpPageAfterAgeSelection=logger.addScreenCapture(CaptureScreenshot.takeScreenshot(driver, "Application"));
-		logger.log(LogStatus.INFO, signUpPageAfterAgeSelection);
-		
+		logger.log(LogStatus.INFO, signUpPageAfterAgeSelection);		
 		signUpPage.clickConfirmButton();
-		logger.log(LogStatus.INFO, "Click on the Confirm Button");	
-		
-		Thread.sleep(5000);
-		
-		CreateAnAccountPage createAnAccountPage = PageFactory.initElements(driver, CreateAnAccountPage.class);
-		//createAnAccountPage.verifyCreateAnAccountPageTitle();
+		logger.log(LogStatus.INFO, "Click on the Confirm Button");		
+		Thread.sleep(5000);		
+		CreateAnAccountPage createAnAccountPage = PageFactory.initElements(driver, CreateAnAccountPage.class);		
 		logger.log(LogStatus.INFO, "Create an account Page Title is verified");
 		String createAnAccountPageScreenshot=logger.addScreenCapture(CaptureScreenshot.takeScreenshot(driver, "Application"));
-		logger.log(LogStatus.INFO, createAnAccountPageScreenshot);
-		
+		logger.log(LogStatus.INFO, createAnAccountPageScreenshot);		
 		createAnAccountPage.selectedAgeElementValidation();
-		logger.log(LogStatus.INFO, "Verify is age selected is 12");
-		
-		String string = RandomStringGenerator.generateRandomString();
-		String emailAddress = GetNewEmail.getNewEmail(string);
-		
+		logger.log(LogStatus.INFO, "Verify is age selected is 12");		
+		String userName = RandomStringGenerator.generateRandomString();
+		String emailAddress = GetNewEmail.getNewEmail(userName);		
 		createAnAccountPage.enterEmail(emailAddress);
-		logger.log(LogStatus.INFO, "Enter Email address");
-		
-		createAnAccountPage.enterUserName(string);
-		logger.log(LogStatus.INFO, "Enter Username");
-		
+		logger.log(LogStatus.INFO, "Enter Email address");		
+		createAnAccountPage.enterUserName(userName);
+		logger.log(LogStatus.INFO, "Enter Username");		
 		createAnAccountPage.enterPassword("123456");
-		logger.log(LogStatus.INFO, "Enter Password");	
-		
+		logger.log(LogStatus.INFO, "Enter Password");		
 		String createAnAccountPageAfterEnteringAllDetailsScreenshot=logger.addScreenCapture(CaptureScreenshot.takeScreenshot(driver, "Application"));
-		logger.log(LogStatus.INFO, createAnAccountPageAfterEnteringAllDetailsScreenshot);
-		
-		createAnAccountPage.clickFinishAndPlayButton();
-		
-		Thread.sleep(5000);
-		
+		logger.log(LogStatus.INFO, createAnAccountPageAfterEnteringAllDetailsScreenshot);		
+		createAnAccountPage.clickFinishAndPlayButton();		
+		Thread.sleep(5000);		
 		AlmostDonePopUp almostDonePopUp = PageFactory.initElements(driver, AlmostDonePopUp.class);
 		almostDonePopUp.verifyAlmostDonePopUpTexts();
 		String almostDonePeopUpScreenshot=logger.addScreenCapture(CaptureScreenshot.takeScreenshot(driver, "Application"));
-		logger.log(LogStatus.INFO, almostDonePeopUpScreenshot);
-		
-		almostDonePopUp.clickAlmostDonePopUpPlayNowButton();
-		
-		Thread.sleep(5000);
-		
-		AfterLoggedInPage afterLoggedInPage = PageFactory.initElements(driver, AfterLoggedInPage.class);
-        //afterLoggedInPage.verifyAfterLoggedInPageTitle();					
-		afterLoggedInPage.currentlyLoggedInText(string).isDisplayed();
+		logger.log(LogStatus.INFO, almostDonePeopUpScreenshot);		
+		almostDonePopUp.clickAlmostDonePopUpPlayNowButton();		
+		Thread.sleep(5000);		
+		AfterLoggedInPage afterLoggedInPage = PageFactory.initElements(driver, AfterLoggedInPage.class);        			
+		afterLoggedInPage.currentlyLoggedInText(userName).isDisplayed();
 		afterLoggedInPage.afterLoggedInSuccessfully();
 		logger.log(LogStatus.INFO, "After Logged in Page is verified successfully");
 		String afterLoggedinPageScreenshot=logger.addScreenCapture(CaptureScreenshot.takeScreenshot(driver, "Application"));
-		logger.log(LogStatus.INFO, afterLoggedinPageScreenshot);
-		
-		count = count +1;
-		
-		ExcelDataProvider excel = new ExcelDataProvider();
-
-		
+		logger.log(LogStatus.INFO, afterLoggedinPageScreenshot);		
+		count = count +1;		
+		ExcelDataProvider excel = new ExcelDataProvider();		
         driver.get("http://mailinator.com");
-        AuthoriseMailMailinator.autoriseMail(string,driver);
-        
+        AuthoriseMailMailinator.autoriseMail(userName,driver);        
         Thread.sleep(5000);        
-
 		ActivateAccountPage activateAccountPage = PageFactory.initElements(driver, ActivateAccountPage.class);
 		activateAccountPage.verifyEmailID(emailAddress);
 		activateAccountPage.enterPassword("123456");
@@ -161,52 +120,46 @@ public class TestCase9
 		activateAccountPage.selectDay("11");
 		activateAccountPage.selectYear("1984");
 		activateAccountPage.clickTandC();
-		activateAccountPage.tickCheckBox();
-		
+		activateAccountPage.tickCheckBox();		
 		logger.log(LogStatus.INFO, "Before Clicking Activate Button");
 		String BeforeClickingActivateButtonPageScreenshot=logger.addScreenCapture(CaptureScreenshot.takeScreenshot(driver, "Application"));
-		logger.log(LogStatus.INFO, BeforeClickingActivateButtonPageScreenshot);		
-		
-		activateAccountPage.clickActivateButton();	
-		
-			
-		
+		logger.log(LogStatus.INFO, BeforeClickingActivateButtonPageScreenshot);			
+		activateAccountPage.clickActivateButton();			
 		activateAccountPage.ThankYouForActivatingAccountText();		
-		
 		logger.log(LogStatus.INFO, "Thank you for Activating");
 		String ThankYouForActivatingPageScreenshot=logger.addScreenCapture(CaptureScreenshot.takeScreenshot(driver, "Application"));
-		logger.log(LogStatus.INFO, ThankYouForActivatingPageScreenshot);	
-		
-		
-		
-		count = count+1;
-		
+		logger.log(LogStatus.INFO, ThankYouForActivatingPageScreenshot);			
+		count = count+1;		
+		BrowserFactory.closeBrowser();		
+		logger.log(LogStatus.INFO, "Quitting the Browser Opened");			
 		if(count==1)
 		{
-			excel.writeToNextFreeCell(2,0,string);		
+			WebDriver driver = BrowserFactory.getBrowser("chrome");		
+			String emailReportPathToSend = ExtentManager.finalPath;
+			String mailContent = "There are issues authorising the user You can refer to the below report for the run result\n"+emailReportPathToSend+"\nBelow are the details of the non authorised user created : \n";
+			excel.writeToNextFreeCell(2,0,userName);		
 			excel.writetoexcel();
-			SendMail.sendMail(driver,string,"123456",emailAddress,"No");
+			SendMail.sendMail(driver,subject,mailContent,age,userName,"123456",emailAddress,"No");
 		}
 		else if(count==2)
 		{
-			excel.writeToNextFreeCell(3,0,string);		
+			WebDriver driver = BrowserFactory.getBrowser("chrome");	
+			String emailReportPathToSend = ExtentManager.finalPath;
+			String mailContent = "Authorised user has been created.\n\nYou can refer to the below report for the run result\n"+emailReportPathToSend+"\nBelow are the details of the Authorised user created : \n";
+			excel.writeToNextFreeCell(3,0,userName);		
 			excel.writetoexcel();
-			SendMail.sendMail(driver,string,"123456",emailAddress,"Yes");
+			SendMail.sendMail(driver,subject,mailContent,age,userName,"123456",emailAddress,"Yes");			
 		}
-		else
+		else if (count==0)
 		{
-			System.out.println("Nothing");
+			WebDriver driver = BrowserFactory.getBrowser("chrome");		
+			String emailReportPathToSend = ExtentManager.finalPath;
+			String mailContent = "User cannot be created as there are issues You can refer to the below report for the run result\n"+emailReportPathToSend;
+			SendMail.sendMail(driver,subject,mailContent,"Not Created","Not Created","Not Created","Not Created","Not Created");
 			
 		}
-		
 		BrowserFactory.closeBrowser();
-		
-		logger.log(LogStatus.INFO, "Quitting the Browser Opened");	
-		
-		
 	}
-	
-
 
 	@AfterMethod
 	public void afterTest(ITestResult result) throws Throwable
@@ -226,5 +179,5 @@ public class TestCase9
 		report.flush();	
 		BrowserFactory.closeBrowser();
 		report.close();				
-	}	
+	}		
 }

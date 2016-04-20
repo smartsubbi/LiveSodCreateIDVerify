@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 public class SendMail 
 {	
 	@Test
-	public static void sendMail(WebDriver driver,String userName, String password, String emailAddress, String authorisedOrNot) throws Exception
+	public static void sendMail(WebDriver driver,String subject, String mailContent, String age, String userName, String password, String emailAddress, String authorisedOrNot) throws Exception
 	{		
 		String emailIdToSend = System.getProperty("emailid");		
 		driver.get("https://mail.google.com/");		
@@ -24,9 +24,9 @@ public class SendMail
 		Thread.sleep(5000);		
 		driver.findElement(By.id(":na")).sendKeys(emailIdToSend);		
 		Thread.sleep(5000);		
-		driver.findElement(By.id(":mu")).sendKeys("SOD Live ID Created");		
+		driver.findElement(By.id(":mu")).sendKeys(subject);		
 		Thread.sleep(5000);			
-		String content = "UserName is : "+userName+"\nPassword is : "+password+"\nEmailId is : "+emailAddress+"\nAuthorised : "+authorisedOrNot;		
+		String content = mailContent+"Age is : "+age+"\nUserName is : "+userName+"\nPassword is : "+password+"\nEmailId is : "+emailAddress+"\nAuthorised : "+authorisedOrNot;		
 		driver.findElement(By.id(":nz")).sendKeys(content);		
 		Thread.sleep(5000);		
 		driver.findElement(By.xpath("//div[.='Send']")).click();		
