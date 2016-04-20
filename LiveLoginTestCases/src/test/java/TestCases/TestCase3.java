@@ -24,7 +24,8 @@ public class TestCase3
 {
 	WebDriver driver;
 	ExtentReports report;
-	ExtentTest logger;			
+	ExtentTest logger;	
+	static String testCase3Result = "No result";
 	
 	@BeforeClass
 	public void setUp() throws Throwable
@@ -88,8 +89,10 @@ public class TestCase3
 		{		
 			logger.log(LogStatus.FAIL, "<pre>" + result.getThrowable().getMessage() + "</pre>");
 			String failureScreenshot=logger.addScreenCapture(CaptureScreenshot.takeScreenshot(driver,result.getName()));			  
-			logger.log(LogStatus.FAIL, failureScreenshot);				
-		}		
+			logger.log(LogStatus.FAIL, failureScreenshot);	
+			testCase3Result = "Fail";
+		}	
+		testCase3Result = "Pass";
 	}
 	
 	@AfterClass

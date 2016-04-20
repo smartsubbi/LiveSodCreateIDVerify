@@ -1,6 +1,5 @@
 package TestCases;
 
-import java.util.Set;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.ITestResult;
@@ -23,8 +22,9 @@ public class TestCase4
 {
 	WebDriver driver;
 	ExtentReports report;
-	ExtentTest logger;	
-	Set<String> windowsOpen;	
+	ExtentTest logger;
+	static String testCase4Result = "No result";
+	
 	
 	@BeforeClass
 	public void setUp() throws Throwable
@@ -89,8 +89,10 @@ public class TestCase4
 		{		
 			logger.log(LogStatus.FAIL, "<pre>" + result.getThrowable().getMessage() + "</pre>");
 			String failureScreenshot=logger.addScreenCapture(CaptureScreenshot.takeScreenshot(driver,result.getName()));			  
-			logger.log(LogStatus.FAIL, failureScreenshot);				
+			logger.log(LogStatus.FAIL, failureScreenshot);	
+			testCase4Result = "Fail";
 		}		
+		testCase4Result = "Pass";
 	}
 	
 	@AfterClass

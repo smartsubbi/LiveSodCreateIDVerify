@@ -5,9 +5,9 @@
 	<test name="Live Tests">
 		<classes>
 			<class name="TestCases.TestCase1" />
-			<class name="TestCases.TestCase2" />
+		  	<class name="TestCases.TestCase2" />
 			<class name="TestCases.TestCase3" /> 
-			<class name="TestCases.TestCase4" />
+			<class name="TestCases.TestCase4" /> 
 		</classes>
 	</test> <!-- Test -->
 </suite> <!-- Suite -->
