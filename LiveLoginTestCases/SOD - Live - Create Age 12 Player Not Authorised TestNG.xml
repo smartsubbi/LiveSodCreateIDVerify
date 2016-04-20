@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="School Of Dragons - Live - Create Age 12 Player (Authorized User)">
+	<parameter name="Category" value="SOD Live Create age 12 authorised user" />
+	<test name="Live Tests">
+		<classes>
+			<class name="TestCases.TestCase10" />
+		</classes>
+	</test> <!-- Test -->
+</suite> <!-- Suite -->
+ 
