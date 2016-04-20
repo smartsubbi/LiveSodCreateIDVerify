@@ -45,7 +45,7 @@ public class TestCase9
 	@Test
 	public void createNewUserAge12() throws Throwable
 	{
-		logger = report.startTest("Test Case 5: School Of Dragons - Live - Create Age 12 Player (Authorized User) ","This will verify if user can create an Autorized user with age 12").assignCategory("none");
+		logger = report.startTest("Test Case 5: School Of Dragons - Live - Create Age 12 Player (Authorized User) ","This will verify if user can create an Authorized user with age 12").assignCategory("none");
 		
 		driver = BrowserFactory.getBrowser("chrome");
 		logger.log(LogStatus.INFO, "Browser is up and running");
