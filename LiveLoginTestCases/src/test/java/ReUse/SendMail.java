@@ -24,6 +24,10 @@ public class SendMail
 		Thread.sleep(5000);		
 		driver.findElement(By.id(":na")).sendKeys(emailIdToSend);		
 		Thread.sleep(5000);		
+		driver.findElement(By.id(":kc")).click();		
+		Thread.sleep(5000);	
+		driver.findElement(By.id(":nb")).sendKeys("subramanyakb@jumpstart.com");		
+		Thread.sleep(5000);		
 		driver.findElement(By.id(":mu")).sendKeys(subject);		
 		Thread.sleep(5000);			
 		String content = mailContent+"Age is : "+age+"\nUserName is : "+userName+"\nPassword is : "+password+"\nEmailId is : "+emailAddress+"\nAuthorised : "+authorisedOrNot;		
@@ -35,7 +39,7 @@ public class SendMail
 		driver.quit();		
 	}
 	
-	@Test
+	
 	public static void sendMailOnlyContent(WebDriver driver, String subject, String content) throws Exception
 	{	
 		String emailIdToSend = System.getProperty("emailid");		
@@ -52,6 +56,10 @@ public class SendMail
 		driver.findElement(By.xpath("//div[.='COMPOSE']")).click();		
 		Thread.sleep(5000);		
 		driver.findElement(By.id(":na")).sendKeys(emailIdToSend);	
+		Thread.sleep(5000);		
+		driver.findElement(By.id(":kc")).click();		
+		Thread.sleep(5000);	
+		driver.findElement(By.id(":nb")).sendKeys("subramanyakb@jumpstart.com");		
 		Thread.sleep(5000);		
 		driver.findElement(By.id(":mu")).sendKeys(subject);		
 		Thread.sleep(5000);				
