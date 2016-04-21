@@ -68,8 +68,8 @@ public class TestCase9
 		logger.log(LogStatus.INFO, "Verified if the Confirm Button is disabled");		
 		signUpPage.selectAge(age);
 		logger.log(LogStatus.INFO, "Select age 12");		
-		signUpPage.selectedAgeElementValidation();
-		logger.log(LogStatus.INFO, "Verify is age selected is 12");		
+		signUpPage.selectedAgeElementValidation(age);
+		logger.log(LogStatus.INFO, "Verify if age selected is 12");		
 		signUpPage.confirmButtonEnabledElementValidation();
 		logger.log(LogStatus.INFO, "Verify if the confirm button is enabled");		
 		String signUpPageAfterAgeSelection=logger.addScreenCapture(CaptureScreenshot.takeScreenshot(driver, "Application"));
@@ -81,7 +81,7 @@ public class TestCase9
 		logger.log(LogStatus.INFO, "Create an account Page Title is verified");
 		String createAnAccountPageScreenshot=logger.addScreenCapture(CaptureScreenshot.takeScreenshot(driver, "Application"));
 		logger.log(LogStatus.INFO, createAnAccountPageScreenshot);		
-		createAnAccountPage.selectedAgeElementValidation();
+		createAnAccountPage.selectedAgeElementValidation(age);
 		logger.log(LogStatus.INFO, "Verify is age selected is 12");		
 		String userName = RandomStringGenerator.generateRandomString();
 		String emailAddress = GetNewEmail.getNewEmail(userName);		

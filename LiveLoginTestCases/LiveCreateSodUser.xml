@@ -56,7 +56,7 @@
 						<emailid>${emailid}</emailid>
 					</systemPropertyVariables>
 					<suiteXmlFiles>
-						<suiteXmlFile>LiveCreateUser.xml</suiteXmlFile>
+						<suiteXmlFile>SOD - Live - Create Age 12 Player Not Authorised TestNG.xml</suiteXmlFile>
 					</suiteXmlFiles>
 					<testFailureIgnore>true</testFailureIgnore>
 				</configuration>

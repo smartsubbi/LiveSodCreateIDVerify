@@ -25,15 +25,15 @@ import Utility.CaptureScreenshot;
 import Utility.GetNewEmail;
 import Utility.RandomStringGenerator;
 
-public class TestCase10 
+public class TestCase12 
 {
 	WebDriver driver;
 	ExtentReports report;
 	ExtentTest logger;	
-	String age = "12";
+	String age = "13";
 	int count = 0;
 	
-	String subject = "Create Age 12 Player (Non Authorized User)";
+	String subject = "Create Age 12 Player (Authorized User)";
 	
 	@BeforeClass
 	public void setUp() throws Throwable
@@ -45,7 +45,7 @@ public class TestCase10
 	@Test
 	public void createNewUserAge12() throws Throwable
 	{
-		logger = report.startTest("Test Case 5: School Of Dragons - Live - Create Age 12 Player (Non Authorized User) ","This will verify if user can create an non Authorized user with age 12").assignCategory("none");
+		logger = report.startTest("Test Case 5: School Of Dragons - Live - Create Age 12 Player (Authorized User) ","This will verify if user can create an Authorized user with age 12").assignCategory("none");
 		
 		driver = BrowserFactory.getBrowser("chrome");
 		logger.log(LogStatus.INFO, "Browser is up and running");
@@ -96,7 +96,7 @@ public class TestCase10
 		createAnAccountPage.clickFinishAndPlayButton();		
 		Thread.sleep(5000);		
 		AlmostDonePopUp almostDonePopUp = PageFactory.initElements(driver, AlmostDonePopUp.class);
-		almostDonePopUp.verifyAlmostDonePopUpTexts();
+		almostDonePopUp.verifyAlmostDonePopUpTextsforPlayer();
 		String almostDonePeopUpScreenshot=logger.addScreenCapture(CaptureScreenshot.takeScreenshot(driver, "Application"));
 		logger.log(LogStatus.INFO, almostDonePeopUpScreenshot);		
 		almostDonePopUp.clickAlmostDonePopUpPlayNowButton();		
@@ -108,14 +108,35 @@ public class TestCase10
 		String afterLoggedinPageScreenshot=logger.addScreenCapture(CaptureScreenshot.takeScreenshot(driver, "Application"));
 		logger.log(LogStatus.INFO, afterLoggedinPageScreenshot);		
 		count = count +1;		
-		ExcelDataProvider excel = new ExcelDataProvider();	       
+		ExcelDataProvider excel = new ExcelDataProvider();		
+        driver.get("http://mailinator.com");
+        AuthoriseMailMailinator.autoriseMail(userName,driver);        
+        Thread.sleep(5000);        
+		ActivateAccountPage activateAccountPage = PageFactory.initElements(driver, ActivateAccountPage.class);
+		activateAccountPage.verifyEmailID(emailAddress);
+		activateAccountPage.enterPassword("123456");
+		activateAccountPage.enterConfirmPassword("123456");
+		activateAccountPage.selectMonth("6");
+		activateAccountPage.selectDay("11");
+		activateAccountPage.selectYear("1984");
+		activateAccountPage.clickTandC();
+		activateAccountPage.tickCheckBox();		
+		logger.log(LogStatus.INFO, "Before Clicking Activate Button");
+		String BeforeClickingActivateButtonPageScreenshot=logger.addScreenCapture(CaptureScreenshot.takeScreenshot(driver, "Application"));
+		logger.log(LogStatus.INFO, BeforeClickingActivateButtonPageScreenshot);			
+		activateAccountPage.clickActivateButton();			
+		activateAccountPage.ThankYouForActivatingAccountText();		
+		logger.log(LogStatus.INFO, "Thank you for Activating");
+		String ThankYouForActivatingPageScreenshot=logger.addScreenCapture(CaptureScreenshot.takeScreenshot(driver, "Application"));
+		logger.log(LogStatus.INFO, ThankYouForActivatingPageScreenshot);			
+		count = count+1;		
 		BrowserFactory.closeBrowser();		
 		logger.log(LogStatus.INFO, "Quitting the Browser Opened");			
 		if(count==1)
 		{
 			WebDriver driver = BrowserFactory.getBrowser("chrome");		
 			String emailReportPathToSend = ExtentManager.finalPath;
-			String mailContent = "Non authorised user has been created.\n\nYou can refer to the below report for the run result\n"+emailReportPathToSend+"\nBelow are the details of the non authorised user created : \n";
+			String mailContent = "There are issues authorising the user You can refer to the below report for the run result\n"+emailReportPathToSend+"\nBelow are the details of the non authorised user created : \n";
 			excel.writeToNextFreeCell(2,0,userName);		
 			excel.writetoexcel();
 			SendMail.sendMail(driver,subject,mailContent,age,userName,"123456",emailAddress,"No");

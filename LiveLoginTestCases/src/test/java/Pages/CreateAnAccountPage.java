@@ -1,5 +1,6 @@
 package Pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -21,13 +22,15 @@ public class CreateAnAccountPage
 		Assert.assertEquals(createAnAccountPageTitle, "Sign Up – Play Dragon Game Online – School of Dragons");
 	}
 	
-	@FindBy(xpath="//select[@id='ctl00_mcp_ucRegModule_ddlAge'][@class='list_month'][@name='ctl00$mcp$ucRegModule$ddlAge']/option[@value='12'][@selected='selected'][.='12']")
-	WebElement createAnAccountPageSelectedAge;
+//	@FindBy(xpath="//select[@id='ctl00_mcp_ucRegModule_ddlAge'][@class='list_month'][@name='ctl00$mcp$ucRegModule$ddlAge']/option[@value='12'][@selected='selected'][.='12']")
+//	WebElement createAnAccountPageSelectedAge;
 	
-	public void selectedAgeElementValidation()
+	
+	public void selectedAgeElementValidation(String age)
 	{
-		Assert.assertTrue(createAnAccountPageSelectedAge!=null);
-		Assert.assertTrue(createAnAccountPageSelectedAge.isDisplayed());				
+		String createAnAccountPageSelectedAge = "//select[@id='ctl00_mcp_ucRegModule_ddlAge'][@class='list_month'][@name='ctl00$mcp$ucRegModule$ddlAge']/option[@value='"+age+"'][@selected='selected'][.='"+age+"']";
+		Assert.assertTrue(driver.findElement(By.xpath(createAnAccountPageSelectedAge))!=null);
+		Assert.assertTrue(driver.findElement(By.xpath(createAnAccountPageSelectedAge)).isDisplayed());				
 	}
 	
 	@FindBy(xpath="//input[@id='ctl00_mcp_ucRegModule_tbEmail'][@type='text'][@name='ctl00$mcp$ucRegModule$tbEmail']")

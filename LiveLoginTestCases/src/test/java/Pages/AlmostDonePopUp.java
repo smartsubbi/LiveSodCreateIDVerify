@@ -15,6 +15,9 @@ public class AlmostDonePopUp
 	@FindBy(xpath="//*[@id='ctl00_mcp_RegistrationConfirmation_parentLabel'][.='An email has been sent to your parent. Play now while your parent completes the registration.']")
 	WebElement emailSentConfirmationText;
 	
+	@FindBy(xpath="//*[@id='ctl00_mcp_RegistrationConfirmation_accountLabel'][.='An email has been sent to your account. Please activate your account for complete access to the site.']")
+	WebElement emailSentConfirmationTextPlayer;
+	
 	@FindBy(xpath="//*[@id='btnLogin']/div[@class='SOD-Login-Btn'][@onclick='RedirectToGamePage()']")
 	WebElement almostDonePopUpPlayNowButton;
 	
@@ -24,6 +27,14 @@ public class AlmostDonePopUp
 		Assert.assertTrue(almostDoneText.isDisplayed());
 		Assert.assertTrue(emailSentConfirmationText!=null);
 		Assert.assertTrue(emailSentConfirmationText.isDisplayed());
+	}
+	
+	public void verifyAlmostDonePopUpTextsforPlayer()
+	{
+		Assert.assertTrue(almostDoneText!=null);
+		Assert.assertTrue(almostDoneText.isDisplayed());
+		Assert.assertTrue(emailSentConfirmationTextPlayer!=null);
+		Assert.assertTrue(emailSentConfirmationTextPlayer.isDisplayed());
 	}
 	
 	public void clickAlmostDonePopUpPlayNowButton()

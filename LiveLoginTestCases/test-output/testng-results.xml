@@ -1,143 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="4" passed="4">
+<testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Live Test Cases Suite" duration-ms="342764" started-at="2016-04-19T16:29:12Z" finished-at="2016-04-19T16:34:55Z">
+  <suite name="Default suite" duration-ms="216150" started-at="2016-04-21T12:57:27Z" finished-at="2016-04-21T13:01:03Z">
     <groups>
     </groups>
-    <test name="Live Tests" duration-ms="342764" started-at="2016-04-19T16:29:12Z" finished-at="2016-04-19T16:34:55Z">
-      <class name="TestCases.TestCase3">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:TestCases.TestCase3@26be92ad]" name="setUp" is-config="true" duration-ms="55" started-at="2016-04-19T22:01:26Z" finished-at="2016-04-19T22:01:26Z">
+    <test name="Default test" duration-ms="216150" started-at="2016-04-21T12:57:27Z" finished-at="2016-04-21T13:01:03Z">
+      <class name="TestCases.TestCase12">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:TestCases.TestCase12@55f3ddb1]" name="setUp" is-config="true" duration-ms="82" started-at="2016-04-21T18:27:27Z" finished-at="2016-04-21T18:27:27Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="ValidNonAuthorisedParentLogin(java.lang.String)[pri:0, instance:TestCases.TestCase3@26be92ad]" name="ValidNonAuthorisedParentLogin" duration-ms="76598" started-at="2016-04-19T22:01:26Z" finished-at="2016-04-19T22:02:42Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Live Test Cases]]>
-              </value>
-            </param>
-          </params>
+        <test-method status="PASS" signature="createNewUserAge12()[pri:0, instance:TestCases.TestCase12@55f3ddb1]" name="createNewUserAge12" duration-ms="215803" started-at="2016-04-21T18:27:27Z" finished-at="2016-04-21T18:31:03Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- ValidNonAuthorisedParentLogin -->
-        <test-method status="PASS" signature="afterTest(org.testng.ITestResult)[pri:0, instance:TestCases.TestCase3@26be92ad]" name="afterTest" is-config="true" duration-ms="0" started-at="2016-04-19T22:02:43Z" finished-at="2016-04-19T22:02:43Z">
+        </test-method> <!-- createNewUserAge12 -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:TestCases.TestCase12@55f3ddb1]" name="tearDown" is-config="true" duration-ms="250" started-at="2016-04-21T18:31:03Z" finished-at="2016-04-21T18:31:03Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="afterTest(org.testng.ITestResult)[pri:0, instance:TestCases.TestCase12@55f3ddb1]" name="afterTest" is-config="true" duration-ms="0" started-at="2016-04-21T18:31:03Z" finished-at="2016-04-21T18:31:03Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=ValidNonAuthorisedParentLogin status=SUCCESS method=TestCase3.ValidNonAuthorisedParentLogin(java.lang.String)[pri:0, instance:TestCases.TestCase3@26be92ad] output={null}]]]>
+                <![CDATA[[TestResult name=createNewUserAge12 status=SUCCESS method=TestCase12.createNewUserAge12()[pri:0, instance:TestCases.TestCase12@55f3ddb1] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:TestCases.TestCase3@26be92ad]" name="tearDown" is-config="true" duration-ms="66" started-at="2016-04-19T22:02:43Z" finished-at="2016-04-19T22:02:43Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- TestCases.TestCase3 -->
-      <class name="TestCases.TestCase4">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:TestCases.TestCase4@4c70fda8]" name="setUp" is-config="true" duration-ms="72" started-at="2016-04-19T22:02:43Z" finished-at="2016-04-19T22:02:43Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="ValidNonAuthorisedPlayerLogin(java.lang.String)[pri:0, instance:TestCases.TestCase4@4c70fda8]" name="ValidNonAuthorisedPlayerLogin" duration-ms="72464" started-at="2016-04-19T22:02:43Z" finished-at="2016-04-19T22:03:55Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Live Test Cases]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- ValidNonAuthorisedPlayerLogin -->
-        <test-method status="PASS" signature="afterTest(org.testng.ITestResult)[pri:0, instance:TestCases.TestCase4@4c70fda8]" name="afterTest" is-config="true" duration-ms="0" started-at="2016-04-19T22:03:55Z" finished-at="2016-04-19T22:03:55Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=ValidNonAuthorisedPlayerLogin status=SUCCESS method=TestCase4.ValidNonAuthorisedPlayerLogin(java.lang.String)[pri:0, instance:TestCases.TestCase4@4c70fda8] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterTest -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:TestCases.TestCase4@4c70fda8]" name="tearDown" is-config="true" duration-ms="79" started-at="2016-04-19T22:03:55Z" finished-at="2016-04-19T22:03:55Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- TestCases.TestCase4 -->
-      <class name="TestCases.TestCase1">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:TestCases.TestCase1@475530b9]" name="setUp" is-config="true" duration-ms="2555" started-at="2016-04-19T21:59:12Z" finished-at="2016-04-19T21:59:15Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="ValidAuthorisedPlayerLogin(java.lang.String)[pri:0, instance:TestCases.TestCase1@475530b9]" name="ValidAuthorisedPlayerLogin" duration-ms="67777" started-at="2016-04-19T21:59:15Z" finished-at="2016-04-19T22:00:22Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Live Test Cases]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- ValidAuthorisedPlayerLogin -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:TestCases.TestCase1@475530b9]" name="tearDown" is-config="true" duration-ms="232" started-at="2016-04-19T22:00:22Z" finished-at="2016-04-19T22:00:23Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="afterTest(org.testng.ITestResult)[pri:0, instance:TestCases.TestCase1@475530b9]" name="afterTest" is-config="true" duration-ms="0" started-at="2016-04-19T22:00:22Z" finished-at="2016-04-19T22:00:22Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=ValidAuthorisedPlayerLogin status=SUCCESS method=TestCase1.ValidAuthorisedPlayerLogin(java.lang.String)[pri:0, instance:TestCases.TestCase1@475530b9] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterTest -->
-        <test-method status="PASS" signature="printReportPath()[pri:0, instance:TestCases.TestCase1@475530b9]" name="printReportPath" is-config="true" duration-ms="59707" started-at="2016-04-19T22:03:55Z" finished-at="2016-04-19T22:04:55Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- printReportPath -->
-      </class> <!-- TestCases.TestCase1 -->
-      <class name="TestCases.TestCase2">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:TestCases.TestCase2@1d057a39]" name="setUp" is-config="true" duration-ms="114" started-at="2016-04-19T22:00:23Z" finished-at="2016-04-19T22:00:23Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="ValidAuthorisedParentLogin(java.lang.String)[pri:0, instance:TestCases.TestCase2@1d057a39]" name="ValidAuthorisedParentLogin" duration-ms="62985" started-at="2016-04-19T22:00:23Z" finished-at="2016-04-19T22:01:26Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Live Test Cases]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- ValidAuthorisedParentLogin -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:TestCases.TestCase2@1d057a39]" name="tearDown" is-config="true" duration-ms="46" started-at="2016-04-19T22:01:26Z" finished-at="2016-04-19T22:01:26Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="afterTest(org.testng.ITestResult)[pri:0, instance:TestCases.TestCase2@1d057a39]" name="afterTest" is-config="true" duration-ms="0" started-at="2016-04-19T22:01:26Z" finished-at="2016-04-19T22:01:26Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=ValidAuthorisedParentLogin status=SUCCESS method=TestCase2.ValidAuthorisedParentLogin(java.lang.String)[pri:0, instance:TestCases.TestCase2@1d057a39] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterTest -->
-      </class> <!-- TestCases.TestCase2 -->
-    </test> <!-- Live Tests -->
-  </suite> <!-- Live Test Cases Suite -->
+      </class> <!-- TestCases.TestCase12 -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
 </testng-results>

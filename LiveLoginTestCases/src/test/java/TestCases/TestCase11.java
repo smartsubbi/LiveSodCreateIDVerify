@@ -25,12 +25,12 @@ import Utility.CaptureScreenshot;
 import Utility.GetNewEmail;
 import Utility.RandomStringGenerator;
 
-public class TestCase10 
+public class TestCase11 
 {
 	WebDriver driver;
 	ExtentReports report;
 	ExtentTest logger;	
-	String age = "12";
+	String age = "13";
 	int count = 0;
 	
 	String subject = "Create Age 12 Player (Non Authorized User)";
@@ -67,9 +67,9 @@ public class TestCase10
 		signUpPage.confirmButtonDisabledElementValidation();
 		logger.log(LogStatus.INFO, "Verified if the Confirm Button is disabled");		
 		signUpPage.selectAge(age);
-		logger.log(LogStatus.INFO, "Select age 12");		
+		logger.log(LogStatus.INFO, "Select age 13");		
 		signUpPage.selectedAgeElementValidation(age);
-		logger.log(LogStatus.INFO, "Verify if age selected is 12");		
+		logger.log(LogStatus.INFO, "Verify is age selected is 13");		
 		signUpPage.confirmButtonEnabledElementValidation();
 		logger.log(LogStatus.INFO, "Verify if the confirm button is enabled");		
 		String signUpPageAfterAgeSelection=logger.addScreenCapture(CaptureScreenshot.takeScreenshot(driver, "Application"));
@@ -96,7 +96,7 @@ public class TestCase10
 		createAnAccountPage.clickFinishAndPlayButton();		
 		Thread.sleep(5000);		
 		AlmostDonePopUp almostDonePopUp = PageFactory.initElements(driver, AlmostDonePopUp.class);
-		almostDonePopUp.verifyAlmostDonePopUpTexts();
+		almostDonePopUp.verifyAlmostDonePopUpTextsforPlayer();
 		String almostDonePeopUpScreenshot=logger.addScreenCapture(CaptureScreenshot.takeScreenshot(driver, "Application"));
 		logger.log(LogStatus.INFO, almostDonePeopUpScreenshot);		
 		almostDonePopUp.clickAlmostDonePopUpPlayNowButton();		
