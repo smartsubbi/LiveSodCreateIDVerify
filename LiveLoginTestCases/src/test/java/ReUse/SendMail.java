@@ -22,7 +22,7 @@ public class SendMail
 		Thread.sleep(5000);		
 		driver.findElement(By.xpath("//div[.='COMPOSE']")).click();		
 		Thread.sleep(5000);		
-		driver.findElement(By.id(":na")).sendKeys("smartsubbi@gmail.com");		
+		driver.findElement(By.id(":na")).sendKeys(emailIdToSend);		
 		Thread.sleep(5000);		
 		driver.findElement(By.id(":kc")).click();		
 		Thread.sleep(5000);	
