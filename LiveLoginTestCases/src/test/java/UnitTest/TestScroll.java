@@ -86,8 +86,8 @@ public class TestScroll
 	public void testAuthChrome() throws Throwable
 	{
 		WebDriver driver;
-		System.setProperty("webdriver.ie.driver", ConfigDataProviderFactory.getConfig().getIEPath());
-		driver = new InternetExplorerDriver();
+		System.setProperty("webdriver.chrome.driver", ConfigDataProviderFactory.getConfig().getChromePath());
+		driver = new ChromeDriver();
 		//Runtime.getRuntime().exec("C:\\Users\\subramanyakb\\Desktop\\ChromeAuthetication.exe");
 		driver.get("http://qa.schoolofdragons.com/");
 		
