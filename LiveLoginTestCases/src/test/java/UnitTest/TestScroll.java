@@ -87,7 +87,7 @@ public class TestScroll
 		WebDriver driver;
 		System.setProperty("webdriver.chrome.driver", ConfigDataProviderFactory.getConfig().getChromePath());
 		driver = new ChromeDriver();
-		Runtime.getRuntime().exec("C:\\Users\\subramanyakb\\Desktop\\ChromeAuthetication.exe");
+		//Runtime.getRuntime().exec("C:\\Users\\subramanyakb\\Desktop\\ChromeAuthetication.exe");
 		driver.get("http://qa.schoolofdragons.com/");
 		
 		System.out.println("Website opened");
