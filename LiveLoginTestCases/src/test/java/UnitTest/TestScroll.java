@@ -98,6 +98,8 @@ public class TestScroll
 		
 		System.out.println("Screenshot taken");
 		
+		Thread.sleep(15000);
+		
 		Assert.assertTrue(driver.findElement(By.xpath("//div[@id='ctl00_logindiv']/a[2]")).isDisplayed());
 		
 		System.out.println("Element is present");	
