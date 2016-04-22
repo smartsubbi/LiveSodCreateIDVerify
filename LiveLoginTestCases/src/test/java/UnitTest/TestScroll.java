@@ -11,6 +11,7 @@ import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -85,8 +86,8 @@ public class TestScroll
 	public void testAuthChrome() throws Throwable
 	{
 		WebDriver driver;
-		System.setProperty("webdriver.chrome.driver", ConfigDataProviderFactory.getConfig().getChromePath());
-		driver = new ChromeDriver();
+		System.setProperty("webdriver.ie.driver", ConfigDataProviderFactory.getConfig().getIEPath());
+		driver = new InternetExplorerDriver();
 		//Runtime.getRuntime().exec("C:\\Users\\subramanyakb\\Desktop\\ChromeAuthetication.exe");
 		driver.get("http://qa.schoolofdragons.com/");
 		
