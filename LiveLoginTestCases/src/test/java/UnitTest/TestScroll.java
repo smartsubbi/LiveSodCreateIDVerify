@@ -15,6 +15,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import Factory.ConfigDataProviderFactory;
+import Utility.CaptureScreenshot;
 public class TestScroll 
 {
 
@@ -81,7 +82,7 @@ public class TestScroll
 	}
 	
 	@Test
-	public void testAuthChrome() throws IOException, InterruptedException
+	public void testAuthChrome() throws Throwable
 	{
 		WebDriver driver;
 		System.setProperty("webdriver.chrome.driver", ConfigDataProviderFactory.getConfig().getChromePath());
@@ -92,6 +93,10 @@ public class TestScroll
 		System.out.println("Website opened");
 		
 		Thread.sleep(15000);
+		
+		CaptureScreenshot.takeScreenshot(driver, "Application");
+		
+		System.out.println("Screenshot taken");
 		
 		Assert.assertTrue(driver.findElement(By.xpath("//div[@id='ctl00_logindiv']/a[2]")).isDisplayed());
 		
