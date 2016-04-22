@@ -4,7 +4,7 @@
 	<parameter name="Category" value="SOD Live Create age 12 non authorised user" />
 	<test name="Live Tests">
 		<classes>
-			<class name="TestCases.TestCase10" />
+			<class name="TestCases.TestCase6" />
 		</classes>
 	</test> <!-- Test -->
 </suite> <!-- Suite -->
