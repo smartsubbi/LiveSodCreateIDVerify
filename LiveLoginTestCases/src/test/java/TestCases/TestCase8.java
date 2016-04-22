@@ -33,7 +33,7 @@ public class TestCase8
 	String age = "13";
 	int count = 0;
 	
-	String subject = "Create Age 12 Player (Authorized User)";
+	String subject = "Create Age 13 Player (Authorized User)";
 	
 	@BeforeClass
 	public void setUp() throws Throwable
