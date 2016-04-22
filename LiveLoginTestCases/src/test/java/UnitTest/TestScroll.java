@@ -8,7 +8,13 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import Factory.ConfigDataProviderFactory;
 public class TestScroll 
 {
 
@@ -72,6 +78,30 @@ public class TestScroll
 			    System.out.println(content.length);
 
 	}
+	}
+	
+	@Test
+	public void testAuthChrome() throws IOException, InterruptedException
+	{
+		WebDriver driver;
+		System.setProperty("webdriver.chrome.driver", ConfigDataProviderFactory.getConfig().getChromePath());
+		driver = new ChromeDriver();
+		Runtime.getRuntime().exec("C:\\Users\\subramanyakb\\Desktop\\ChromeAuthetication.exe");
+		driver.get("http://qa.schoolofdragons.com/");
+		
+		System.out.println("Website opened");
+		
+		Thread.sleep(15000);
+		
+		Assert.assertTrue(driver.findElement(By.xpath("//div[@id='ctl00_logindiv']/a[2]")).isDisplayed());
+		
+		System.out.println("Element is present");	
+		
+		driver.close();
+		driver.quit();
+		
+		System.out.println("Closed all");
+		
 	}
 	
 
