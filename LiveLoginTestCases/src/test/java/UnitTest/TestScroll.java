@@ -11,11 +11,15 @@ import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import Factory.ConfigDataProviderFactory;
+import Pages.CommonHeader;
+import Pages.MembershipPage;
 import Utility.CaptureScreenshot;
 public class TestScroll 
 {
@@ -82,7 +86,7 @@ public class TestScroll
 	}
 	}
 	
-	@Test
+	
 	public void testAuthChrome() throws Throwable
 	{
 		WebDriver driver;
@@ -111,6 +115,48 @@ public class TestScroll
 		System.out.println("Closed all");
 		
 	}
+	
+	@Test
+	public void verifyMembershipPage() throws Throwable
+	{
+		WebDriver driver = new FirefoxDriver();
+		
+		try
+		{
+			driver.get("https://www.schoolofdragons.com/Membership/Membership.aspx");
+			MembershipPage membershipPage = PageFactory.initElements(driver, MembershipPage.class);
+			
+			membershipPage.monthlyBuyNowButton.click();
+			Thread.sleep(5000);
+			driver.findElement(By.id("ctl00_mcp_tbUsername")).sendKeys("subbuplayer");
+			Thread.sleep(5000);
+			driver.findElement(By.id("ctl00_mcp_tbPassword")).sendKeys("123456");
+			Thread.sleep(5000);
+			driver.findElement(By.id("ctl00_mcp_btLogin")).click();			
+			Thread.sleep(5000);			
+			membershipPage.verifySelectAPaymentMethodDB();
+			membershipPage.selectPaymentMethodVisa.click();
+			Thread.sleep(5000);
+			driver.switchTo().frame(membershipPage.visaPayWalliframe);
+			membershipPage.visaPayWalliframe.isDisplayed();
+			membershipPage.firstNameTextPaymentMethodDB.isDisplayed();
+			membershipPage.firstNameTextInputFieldPaymentMethodDB.isDisplayed();
+			
+			
+//			membershipPage.verifyMonthly();		
+//			membershipPage.verifyThreeMonthly();
+//			membershipPage.verifySixMonthly();
+//			membershipPage.verifyTwelveMonths();
+//			membershipPage.verifyMembershipFeatures();
+		}
+		catch(Exception e)
+		{
+			driver.close();
+			driver.quit();
+		}
+		
+	}
+	
 	
 
 }
