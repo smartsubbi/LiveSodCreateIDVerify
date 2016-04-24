@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [School Of Dragons - Live - Verify Membership Page]">
+  <parameter name="Category" value="SOD Live Verify membership page"/>
+  <test name="Live Tests(failed)">
+    <classes>
+      <class name="TestCases.TestCase9">
+        <methods>
+          <include name="setUp"/>
+          <include name="afterTest"/>
+          <include name="tearDown"/>
+          <include name="ValidAuthorisedPlayerLogin" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- TestCases.TestCase9 -->
+    </classes>
+  </test> <!-- Live Tests(failed) -->
+</suite> <!-- Failed suite [School Of Dragons - Live - Verify Membership Page] -->

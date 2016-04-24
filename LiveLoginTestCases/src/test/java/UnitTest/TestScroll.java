@@ -2,25 +2,22 @@ package UnitTest;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.InetAddress;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
 import Factory.ConfigDataProviderFactory;
 import Pages.CommonHeader;
 import Pages.MembershipPage;
 import Utility.CaptureScreenshot;
+
 public class TestScroll 
 {
 
@@ -31,6 +28,7 @@ public class TestScroll
 	static String emailReportPath = userDirectory+"/ExtentReports/SchoolOfDragonsLive_" +dateFormat.format(date) + ".html";
 	static String path = userDirectory.replace("\\","/");
 	static String reportPath = "\\\\172.20.11.105\\d\\JenkinsWorkspace\\LiveLoginTestCases\\ExtentReports\\SchoolOfDragonsLive_" +dateFormat.format(date) + ".html";	
+	WebDriver driver = new FirefoxDriver();
 	
 //	@Test
 //	public static void getIp() throws Throwable
@@ -118,45 +116,24 @@ public class TestScroll
 	
 	@Test
 	public void verifyMembershipPage() throws Throwable
-	{
-		WebDriver driver = new FirefoxDriver();
-		
-		try
-		{
-			driver.get("https://www.schoolofdragons.com/Membership/Membership.aspx");
-			MembershipPage membershipPage = PageFactory.initElements(driver, MembershipPage.class);
-			
-			membershipPage.monthlyBuyNowButton.click();
-			Thread.sleep(5000);
-			driver.findElement(By.id("ctl00_mcp_tbUsername")).sendKeys("subbuplayer");
-			Thread.sleep(5000);
-			driver.findElement(By.id("ctl00_mcp_tbPassword")).sendKeys("123456");
-			Thread.sleep(5000);
-			driver.findElement(By.id("ctl00_mcp_btLogin")).click();			
-			Thread.sleep(5000);			
-			membershipPage.verifySelectAPaymentMethodDB();
-			membershipPage.selectPaymentMethodVisa.click();
-			Thread.sleep(5000);
-			driver.switchTo().frame(membershipPage.visaPayWalliframe);
-			membershipPage.visaPayWalliframe.isDisplayed();
-			membershipPage.firstNameTextPaymentMethodDB.isDisplayed();
-			membershipPage.firstNameTextInputFieldPaymentMethodDB.isDisplayed();
-			
-			
-//			membershipPage.verifyMonthly();		
-//			membershipPage.verifyThreeMonthly();
-//			membershipPage.verifySixMonthly();
-//			membershipPage.verifyTwelveMonths();
-//			membershipPage.verifyMembershipFeatures();
-		}
-		catch(Exception e)
-		{
-			driver.close();
-			driver.quit();
-		}
-		
+	{		
+		MembershipPage membershipPage = PageFactory.initElements(driver, MembershipPage.class);
+		CommonHeader header = PageFactory.initElements(driver, CommonHeader.class);
+		driver.get("http://www.schoolofdragons.com");
+		driver.manage().window().maximize();
+		header.clickHeaderLoginLink();			
+		Thread.sleep(10000);
+		driver.findElement(By.id("ctl00_mcp_tbUserName")).sendKeys("subbuplayer");
+		Thread.sleep(5000);
+		driver.findElement(By.id("ctl00_mcp_tbPassword")).sendKeys("123456");
+		Thread.sleep(5000);
+		driver.findElement(By.id("ctl00_mcp_btnLogin")).click();			
+		Thread.sleep(5000);		
+		System.out.println("Clicking membership tab");
+		header.clickMembershipTab();
+		System.out.println("Clicking membership tab done");
+		Thread.sleep(10000);				
+		membershipPage.verifyAllMembersipOptionsAndFeatures();		
+		membershipPage.verifySelectPaymentMethodDBandPaymentForm();				
 	}
-	
-	
-
 }

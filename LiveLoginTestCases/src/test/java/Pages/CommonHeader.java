@@ -27,6 +27,15 @@ public class CommonHeader
 	@FindBy(xpath="//div[@id='ctl00_logindiv']/a[@class='logo'][@title='Create An Account'][@href='/Signup.aspx'][.='Create An Account']")
 	WebElement headerCreateAnAccountLink;
 	
+	@FindBy(xpath=".//*[@id='nav-membership']/a[.='Membership'][@href='/Membership/Membership.aspx']")
+	WebElement membershipTabHomePage;
+	
+	public void clickMembershipTab()
+	{
+		HighLighter.elementHighLight(driver, membershipTabHomePage);
+		membershipTabHomePage.click();
+	}
+	
 	public void clickHeaderLoginLink()
 	{
 		HighLighter.elementHighLight(driver, headerLogInLink);
